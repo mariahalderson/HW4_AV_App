@@ -1,27 +1,21 @@
 {
-  "name": "hw4_av_app",
+  "name": "alderson_mariah_dantas_daniella_av_app",
   "version": "1.0.0",
-  "description": "An interactive application for watching and sharing videos",
+  "description": "AV App for watching and sharing videos",
   "main": "index.js",
   "scripts": {
-    “sass”: “node-sass -w scss/ -o css/ --recursive”
+    "sass": "node-sass -w scss/ -o css/ --recursive"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mariahalderson/HW4_AV_App.git"
+    "url": "git+https://github.com/mariahalderson/alderson_mariah_dantas_daniella_AV_app.git"
   },
-  "keywords": [
-    "app",
-    "av",
-    "video",
-    "sharing"
-  ],
-  "author": "Mariah Alderson and Dani Dantas\u001b[D\u001b[D\u001b[D\u001b[D\u001b[C\u001b[C\u001b[C\u001b[C",
+  "author": "Mariah Alderson, Daniella Dantas",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mariahalderson/HW4_AV_App/issues"
+    "url": "https://github.com/mariahalderson/alderson_mariah_dantas_daniella_AV_app/issues"
   },
-  "homepage": "https://github.com/mariahalderson/HW4_AV_App#readme",
+  "homepage": "https://github.com/mariahalderson/alderson_mariah_dantas_daniella_AV_app#readme",
   "dependencies": {
     "node-sass": "^4.9.4"
   }
