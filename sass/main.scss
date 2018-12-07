@@ -1,0 +1,35 @@
+@import 'vars';
+@import 'login';
+@import 'appheader';
+@import 'timemachine';
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+.hide{
+    display: none;
+}
+
+.title{
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.button{
+    padding: 30px 25px;
+    border: 2px solid #666;
+    border-radius: 100%;
+    text-align: center;
+    margin: auto;
+}
+
+main{
+    width: 100%;
+}
+

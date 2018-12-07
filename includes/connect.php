@@ -15,10 +15,10 @@ mysqli_set_charset($conn, 'utf8');
 
 // echo "connected!";
 
-if(isset($_GET["colnum"])){
-    $column = $_GET["colnum"];
+if(isset($_GET["vid"])){
+    $videos = $_GET["vid"];
 
-    $query = "SELECT * FROM test WHERE col1='$column'";
+    $query = "SELECT * FROM tbl_video";
     $result = mysqli_query($conn, $query);
     $rows = array();
 

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <link href="css/main.css" rel="stylesheet">
+    <title>AV</title>
+</head>
+<body>
+    <h1 class="hide">Roku Flashback</h1>
+
+    <main id="app">
+        <header>
+            <div id="h-logocontainer">
+                <img src="https://via.placeholder.com/198x57?text=Roku+Flashback+Logo" alt="Roku Flashback Logo">
+            </div>
+
+            <div id="userprofile">
+                <p class="h-title">Welcome, Username!</p>
+                <div id="profilebtn">
+                    <img src="https://via.placeholder.com/65x60?text=User+Icon" alt="user profile icon">
+                </div>
+            </div>
+        </header>
+
+        <section id="timemachine">
+            <p class="title">Where would you like to go?</p>
+
+            <div id="btncontainer">
+                <div id="yearscontainer">
+                    <p>choose a year to travel to....</p>
+                    <div id="50" class="button yearbutton" v-on:click="checkConnect"> 50's </div>
+                    <div id="60" class="button yearbutton"> 60's </div>
+                    <div id="70" class="button yearbutton"> 70's </div>
+                    <div id="80" class="button yearbutton"> 80's </div>
+                    <div id="90" class="button yearbutton"> 90's </div>
+                </div>
+                <div id="mediacontainer">
+                    <p>What would you like to see?</p>
+                    <div id="movies" class="button mediabutton">Movies</div>
+                    <div id="tv" class="button mediabutton">TV</div>
+                    <div id="music" class="button mediabutton">Music</div>
+                </div>
+
+                <div id="gobtn" class="button gobutton">GO!</div>
+            </div>
+        </section>
+        
+
+
+
+    </main>
+    
+    <script src="js/main.js"></script>
+</body>
+</html>
