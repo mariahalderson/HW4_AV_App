@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Nov 01, 2018 at 04:44 PM
+-- Generation Time: Dec 07, 2018 at 10:28 PM
 -- Server version: 5.7.21
 -- PHP Version: 7.2.4
 
@@ -101,8 +101,16 @@ CREATE TABLE IF NOT EXISTS `tbl_video` (
   `video_stars` int(11) NOT NULL,
   `video_access` tinyint(1) NOT NULL,
   `video_rating` varchar(10) NOT NULL,
+  `video_url` varchar(250) NOT NULL,
   PRIMARY KEY (`video_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_video`
+--
+
+INSERT INTO `tbl_video` (`video_id`, `video_title`, `video_cast`, `video_director`, `video_desc`, `video_duration`, `video_year`, `video_img`, `video_stars`, `video_access`, `video_rating`, `video_url`) VALUES
+(1, 'movie test', 'actor1, actor2, actor3', 'video director', 'a description about a fake movie', '1h17', 1995, 'images/video_default.jpg', 4, 1, '5', '');
 
 -- --------------------------------------------------------
 
