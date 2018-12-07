@@ -4,7 +4,7 @@
   "description": "AV App for watching and sharing videos",
   "main": "index.js",
   "scripts": {
-    "sass": "node-sass -w scss/ -o css/ --recursive"
+    "sass": "sass --watch sass/main.scss:css/main.css --style compressed"
   },
   "repository": {
     "type": "git",

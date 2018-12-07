@@ -1,0 +1,66 @@
+#timemachine{
+    width: 100%;
+    margin-top: 120px;
+
+    #btncontainer{
+        width: 100%;
+        display: Flex;
+        flex-direction: column;
+
+        p{
+            width: 100%;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        #yearscontainer{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-top: 40px;
+
+            .yearbutton{
+                background-color: #666;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 0;
+                width: 70px;
+                height: 70px;
+            }
+        }
+
+        #mediacontainer{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            align-items: center;
+            margin-top: 40px;
+
+            .mediabutton{
+                background-color: #666;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 0;
+                width: 100px;
+                height: 100px;
+            }
+        }
+
+        #gobtn{
+            margin-top: 60px; 
+            background-color: #999;
+            padding: 0;
+            width: 100px;
+            height: 50px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}
