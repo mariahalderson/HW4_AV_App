@@ -1,32 +1,15 @@
-<?php 
+<?php
+    $user = "root";
+    $pw = "root";
 
-$host = "localhost";
-$un = "root";
-$pass = "";
-$db= "db_avapp";
-
-$conn = mysqli_connect($host, $un, $pass, $db);
-mysqli_set_charset($conn, 'utf8');
-
-// if(!$conn){
-//     echo "something broke...";
-//     exit;
-// }
-
-// echo "connected!";
-
-if(isset($_GET["vid"])){
-    $videos = $_GET["vid"];
-
-    $query = "SELECT * FROM tbl_video";
-    $result = mysqli_query($conn, $query);
-    $rows = array();
-
-    while($row = mysqli_fetch_assoc($result)){
-        $rows[] = $row;
+    try {
+        $conn = new PDO('mysql:host=localhost;dbname=db_avapp', $user, $pw);
+        //var_dump($conn);
+    } catch(PDOException $exception) {
+        echo 'connect error!' . $exception->getMessage();
     }
-}
-
-echo json_encode($rows);
-
 ?>
+
+
+
+
