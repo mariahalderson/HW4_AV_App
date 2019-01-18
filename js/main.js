@@ -15,7 +15,7 @@ const vm = new Vue({
     singleVidInfo: []
   },
   created() {
-    this.getContent(null);
+    //this.getContent(null);
   },
   methods: {
     getContent(movie) {
