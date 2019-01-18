@@ -49,9 +49,11 @@ p {
   }
 }
 
+#bottomNav{
 #main-nav {
   position: fixed;
-  margin-top: 92vh;
+  //margin-top: 92vh;
+  bottom: 0px;
   width: 100%;
   height: 60px;
   background-color: $off-white;
@@ -67,6 +69,7 @@ p {
       }
     }
   }
+}
 }
 
 .title {

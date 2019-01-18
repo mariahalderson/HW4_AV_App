@@ -9,20 +9,9 @@
     <title>AV</title>
   </head>
   <body>
-    <AppHeader></AppHeader>
-    <!-- <header class="logo-header">
-      <div><img src="images/flshbcklogo.svg" alt="Roku Logo" /></div>
-      <nav id="main-nav">
-        <ul>
-          <li><img src="images/iconmonstr-movies.svg" alt="Movies Icon" /></li>
-          <li><img src="images/iconmonstr-music.svg" alt="Music Icon" /></li>
-          <li><img src="images/iconmonstr-television.svg" alt="TV Icon" /></li>
-          <li>...</li>
-        </ul>
-      </nav>
-    </header> -->
 
     <main id="app">
+        <temp></temp>
       <div id="flashback-logo">
         <img src="images/flashback_logo.svg" alt="Roku Flashback Logo" />
       </div>
@@ -36,21 +25,38 @@
           />
         </div>
       </section>
+      <footernav></footernav>
     </main>
 
-<template  id="AppHeader">
+<!-- templates -->
+<template  id="appheader">
     <header class="logo-header">
       <div><img src="images/flshbcklogo.svg" alt="Roku Logo" /></div>
-      <nav id="main-nav">
+      <!-- <nav id="main-nav">
         <ul>
           <li><img src="images/iconmonstr-movies.svg" alt="Movies Icon" /></li>
           <li><img src="images/iconmonstr-music.svg" alt="Music Icon" /></li>
           <li><img src="images/iconmonstr-television.svg" alt="TV Icon" /></li>
           <li>...</li>
         </ul>
-      </nav>
+      </nav> -->
     </header>
 </template>
+
+
+<template id="appfooter">
+  <div id="bottomNav">
+      <nav id="main-nav">
+          <ul>
+            <li><img src="images/iconmonstr-movies.svg" alt="Movies Icon" /></li>
+            <li><img src="images/iconmonstr-music.svg" alt="Music Icon" /></li>
+            <li><img src="images/iconmonstr-television.svg" alt="TV Icon" /></li>
+            <li>...</li>
+          </ul>
+        </nav>
+  </div>
+</template>
+
     <script src="js/main.js"></script>
   </body>
 </html>

@@ -1,10 +1,21 @@
-const header = {
-	template: "#AppHeader",
-	name: 'AppHeader',
+const mainheader = {
+	template: "#appheader",
+	//name: 'tempheader',
 	created: function(){
 		console.log("created");
 	}
 }
+
+const navigation = {
+  template: "#appfooter",
+  created: function(){
+    console.log("footer nav");
+  }
+}
+
+// Vue.Component('temp',{
+//   template: "#appheader"
+// });
 
 
 
@@ -42,6 +53,7 @@ const vm = new Vue({
     }
   },
   components : {
-    AppHeader : AppHeader
+    temp : mainheader,
+    footernav : navigation
 }
 });
