@@ -1,3 +1,13 @@
+const header = {
+	template: "#AppHeader",
+	name: 'AppHeader',
+	created: function(){
+		console.log("created");
+	}
+}
+
+
+
 const vm = new Vue({
   el: "#app",
   data: {
@@ -30,5 +40,8 @@ const vm = new Vue({
     checkConnect() {
       console.log("we did it!");
     }
-  }
+  },
+  components : {
+    AppHeader : AppHeader
+}
 });
