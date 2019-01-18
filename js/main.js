@@ -1,3 +1,24 @@
+const mainheader = {
+	template: "#appheader",
+	//name: 'tempheader',
+	created: function(){
+		console.log("created");
+	}
+}
+
+const navigation = {
+  template: "#appfooter",
+  created: function(){
+    console.log("footer nav");
+  }
+}
+
+// Vue.Component('temp',{
+//   template: "#appheader"
+// });
+
+
+
 const vm = new Vue({
   el: "#app",
   data: {
@@ -5,7 +26,7 @@ const vm = new Vue({
     singleVidInfo: []
   },
   created() {
-    this.getContent(null);
+    //this.getContent(null);
   },
   methods: {
     getContent(movie) {
@@ -30,5 +51,9 @@ const vm = new Vue({
     checkConnect() {
       console.log("we did it!");
     }
-  }
+  },
+  components : {
+    temp : mainheader,
+    footernav : navigation
+}
 });
