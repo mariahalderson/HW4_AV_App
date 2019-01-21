@@ -5,13 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+      integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+      crossorigin="anonymous"
+    />
     <link href="css/main.css" rel="stylesheet" />
     <title>AV</title>
   </head>
   <body>
-
     <main id="app">
-        <temp></temp>
+      <temp></temp>
       <div id="flashback-logo">
         <img src="images/flashback_logo.svg" alt="Roku Flashback Logo" />
       </div>
@@ -28,34 +33,51 @@
       <footernav></footernav>
     </main>
 
-<!-- templates -->
-<template  id="appheader">
-    <header class="logo-header">
-      <div><img src="images/flshbcklogo.svg" alt="Roku Logo" /></div>
-      <!-- <nav id="main-nav">
-        <ul>
-          <li><img src="images/iconmonstr-movies.svg" alt="Movies Icon" /></li>
-          <li><img src="images/iconmonstr-music.svg" alt="Music Icon" /></li>
-          <li><img src="images/iconmonstr-television.svg" alt="TV Icon" /></li>
-          <li>...</li>
-        </ul>
-      </nav> -->
-    </header>
-</template>
+    <!-- templates -->
+    <template id="appheader">
+      <header class="logo-header">
+        <div><img src="images/flshbcklogo.svg" alt="Roku Logo" /></div>
+      </header>
+    </template>
 
-
-<template id="appfooter">
-  <div id="bottomNav">
-      <nav id="main-nav">
+    <template id="appfooter">
+      <div id="bottomNav">
+        <nav id="main-nav">
           <ul>
-            <li><img src="images/iconmonstr-movies.svg" alt="Movies Icon" /></li>
-            <li><img src="images/iconmonstr-music.svg" alt="Music Icon" /></li>
-            <li><img src="images/iconmonstr-television.svg" alt="TV Icon" /></li>
-            <li>...</li>
+            <li v-on:click="openMenu">
+              <img src="images/iconmonstr-movies.svg" alt="Movies Icon" />
+            </li>
+            <li v-on:click="openMenu">
+              <img src="images/iconmonstr-music.svg" alt="Music Icon" />
+            </li>
+            <li v-on:click="openMenu">
+              <img src="images/iconmonstr-television.svg" alt="TV Icon" />
+            </li>
+            <li class="settings"><span>...</span></li>
           </ul>
         </nav>
-  </div>
-</template>
+        <nav class="menu">
+          <div class="search-box">
+            <input
+              class="search-txt"
+              type="text"
+              name=""
+              placeholder="Type to search"
+            />
+            <a class="search-btn" href="#"><i class="fas fa-search"></i></a>
+          </div>
+          <ul class="menu-nav">
+            <li class="nav-item current">
+              <a href="#" class="nav-link"> 50's </a>
+            </li>
+            <li class="nav-item"><a href="#" class="nav-link"> 60's </a></li>
+            <li class="nav-item"><a href="#" class="nav-link"> 70's </a></li>
+            <li class="nav-item"><a href="#" class="nav-link"> 80's </a></li>
+            <li class="nav-item"><a href="#" class="nav-link"> 90's </a></li>
+          </ul>
+        </nav>
+      </div>
+    </template>
 
     <script src="js/main.js"></script>
   </body>
