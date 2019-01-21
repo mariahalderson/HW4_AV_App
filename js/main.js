@@ -1,3 +1,36 @@
+const mainheader = {
+  template: "#appheader",
+  //name: 'tempheader',
+  created: function() {
+    console.log("created");
+  }
+};
+
+const navigation = {
+  template: "#appfooter",
+  created: function() {
+    console.log("footer nav");
+  },
+  methods: {
+    openMenu(e) {
+      // console.log("clicked");
+      let showMenu = false;
+      const menu = document.querySelector(".menu");
+      if (!showMenu) {
+        menu.classList.add("show");
+        showMenu = true;
+      } else {
+        menu.classList.remove("show");
+        showMenu = false;
+      }
+    }
+  }
+};
+
+// Vue.Component('temp',{
+//   template: "#appheader"
+// });
+
 const vm = new Vue({
   el: "#app",
   data: {
@@ -30,5 +63,9 @@ const vm = new Vue({
     checkConnect() {
       console.log("we did it!");
     }
+  },
+  components: {
+    temp: mainheader,
+    footernav: navigation
   }
 });
