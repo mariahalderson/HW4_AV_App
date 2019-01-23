@@ -31,6 +31,12 @@
         height: 60px;
         text-align: center;
         transition: all 0.3s ease-in-out;
+        img {
+          width: 30px;
+          @media screen and (min-width: 700px) {
+            width: 20%;
+          }
+        }
         span {
           position: absolute;
           right: 30px;
@@ -82,7 +88,7 @@
   background: $roku-purple;
   border-radius: 40px;
   overflow: hidden;
-  &:hover > .search-txt {
+  &:hover>.search-txt {
     width: 150px;
     padding: 5px 8px;
   }

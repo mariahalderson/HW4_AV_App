@@ -17,19 +17,22 @@
   <body>
     <main id="app">
       <temp></temp>
-      <div id="flashback-logo">
-        <img src="images/flashback_logo.svg" alt="Roku Flashback Logo" />
-      </div>
-      <section id="thumbs">
-        <div v-for="video in vidinfo" class="thumb">
-          <!-- <p>{{ video.video_title }}</p> -->
-          <img
-            class="thumb-img"
-            :src="video.video_img"
-            alt="video.video_title"
-          />
+      <template id="moviespage">
+        <div id="movies">
+          <div id="flashback-logo">
+            <img src="images/flashback_logo.svg" alt="Roku Flashback Logo" />
+          </div>
+          <section id="thumbs">
+            <div v-for="video in vidinfo" class="thumb">
+              <img
+                class="thumb-img"
+                :src="video.video_img"
+                alt="video.video_title"
+              />
+            </div>
+          </section>
         </div>
-      </section>
+      </template>
       <footernav></footernav>
     </main>
 
