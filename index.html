@@ -4,7 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script> -->
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:300,400"
+      rel="stylesheet"
+    />
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
@@ -12,27 +18,16 @@
       crossorigin="anonymous"
     />
     <link href="css/main.css" rel="stylesheet" />
-    <title>AV</title>
+    <title>Roku Flashback</title>
   </head>
   <body>
     <main id="app">
       <temp></temp>
-      <template id="moviespage">
-        <div id="movies">
-          <div id="flashback-logo">
-            <img src="images/flashback_logo.svg" alt="Roku Flashback Logo" />
-          </div>
-          <section id="thumbs">
-            <div v-for="video in vidinfo" class="thumb">
-              <img
-                class="thumb-img"
-                :src="video.video_img"
-                alt="video.video_title"
-              />
-            </div>
-          </section>
-        </div>
-      </template>
+      <!-- the router view element is where the component get rendered when changing the address bar (the route) -->
+      <transition name="fade" mode="out-in">
+        <router-view> </router-view>
+      </transition>
+
       <footernav></footernav>
     </main>
 
@@ -48,7 +43,9 @@
         <nav id="main-nav">
           <ul>
             <li v-on:click="openMenu">
-              <img src="images/iconmonstr-movies.svg" alt="Movies Icon" />
+              <router-link :to="{ path: '/movies' }">
+                <img src="images/iconmonstr-movies.svg" alt="Movies Icon" />
+              </router-link>
             </li>
             <li v-on:click="openMenu">
               <img src="images/iconmonstr-music.svg" alt="Music Icon" />
@@ -56,7 +53,7 @@
             <li v-on:click="openMenu">
               <img src="images/iconmonstr-television.svg" alt="TV Icon" />
             </li>
-            <li class="settings"><span>...</span></li>
+            <li class="settings"><span v-on:click="openSettings">...</span></li>
           </ul>
         </nav>
         <nav class="menu">
@@ -79,9 +76,41 @@
             <li class="nav-item"><a href="#" class="nav-link"> 90's </a></li>
           </ul>
         </nav>
+        <nav class="settings-nav">
+          <ul>
+            <li><a href="">Profile</a></li>
+            <li><a href="">Settings</a></li>
+            <li><a href="">LogOut</a></li>
+          </ul>
+        </nav>
       </div>
     </template>
+    <template id="moviespage">
+      <div id="movies">
+        <div id="flashback-logo">
+          <img src="images/flashback_logo.svg" alt="Roku Flashback Logo" />
+        </div>
+        <section id="thumbs">
+          <div v-for="video in vidinfo" class="thumb">
+            <!-- <a
+              v-on:click="fetchSingleProject"
+              href="#"
+              :data-project="project.id"
+              class="lightbox"> -->
 
+            <img
+              class="thumb-img"
+              :src="'images/movies/' + video.video_img"
+              alt="video.video_title"
+            />
+            <!-- </a> -->
+          </div>
+        </section>
+      </div>
+    </template>
+    <template id="homepage">
+      <div><h2>You are on the Home Page</h2></div>
+    </template>
     <script src="js/main.js"></script>
   </body>
 </html>

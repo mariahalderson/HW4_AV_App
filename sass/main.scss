@@ -2,6 +2,7 @@
 @import "login";
 @import "appheader";
 @import "timemachine";
+@import "menu";
 * {
   margin: 0;
   padding: 0;
@@ -11,10 +12,15 @@
 
 body {
   background-color: $dark-purple;
+  font-family: $lato-font;
 }
 
 main {
   width: 100%;
+}
+
+h2 {
+  color: white;
 }
 
 .fade-enter-active,
@@ -51,7 +57,7 @@ main {
 
 .title {
   font-size: 30px;
-  font-weight: bold;
+  font-weight: $bold-font;
   text-align: center;
   margin-bottom: 40px;
 }

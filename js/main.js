@@ -10,7 +10,8 @@
   const navigation = {
     data() {
       return {
-        showMenu: false
+        showMenu: false,
+        showSettings: false
       };
     },
     template: "#appfooter",
@@ -18,6 +19,17 @@
       console.log("footer nav");
     },
     methods: {
+      openSettings(e) {
+        console.log("clicked");
+         const settings = document.querySelector(".settings-nav");
+        if (this.showSettings === false) {
+          settings.classList.add("show");
+          this.showSettings = true;
+        } else {
+          settings.classList.remove("show");
+          this.showSettings = false;
+        }
+      },
       openMenu(e) {
         // console.log("clicked");
 
@@ -25,27 +37,30 @@
         if (this.showMenu === false) {
           menu.classList.add("show");
           this.showMenu = true;
-          // console.log(showMenu);
         } else {
           menu.classList.remove("show");
           this.showMenu = false;
-          // console.log(showMenu);
         }
       }
     }
   };
-
-  const vm = new Vue({
-    el: "#app",
-    data: {
-      vidinfo: [],
-      singleVidInfo: []
+  const homepage = {
+    template: "#homepage"
+  };
+  const moviespage = {
+    template: "#moviespage",
+    data: function() {
+      return {
+        vidinfo: [],
+        singleVidInfo: []
+      };
     },
-    created() {
-      this.getContent(null);
+    created: function() {
+      console.log("moviespage");
+      this.getMovieContent(null);
     },
     methods: {
-      getContent(movie) {
+      getMovieContent(movie) {
         let targetURL = movie
           ? `./includes/index.php?movie=${movie}`
           : "./includes/index.php";
@@ -63,15 +78,30 @@
           .catch(function(error) {
             console.log(error);
           });
-      },
-      checkConnect() {
-        console.log("we did it!");
       }
+    }
+  };
+  const routes = [
+    { path: "/", name: "home", component: homepage },
+    { path: "/movies", name: "movies", component: moviespage }
+  ];
+  const router = new VueRouter({
+    routes
+  });
+  const vm = new Vue({
+    el: "#app",
+    data: {
+      vidinfo: [],
+      singleVidInfo: []
     },
+    created() {},
+    methods: {},
     components: {
       temp: mainheader,
-      footernav: navigation
-    }
-    // router: router
+      footernav: navigation,
+      homepage: homepage,
+      moviespage: moviespage
+    },
+    router: router
   });
 })();
