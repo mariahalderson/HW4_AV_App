@@ -2,3 +2,5 @@ package-lock.json
 node_modules
 .DS_store
 .sass-cache
+css/main.css
+css/main.css.map

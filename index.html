@@ -104,7 +104,7 @@
           <h1>{{singleVidInfo.video_title}}</h1>
 
           <div class="image-container">
-            <img :src="singleVidInfo.video_img" :alt="singleVidInfo.video_title">
+            <img :src="'images/movies/' + singleVidInfo.video_img" :alt="singleVidInfo.video_title">
             <div class="play-btn"></div>
           </div>
           <div class="movie-specs">
@@ -143,7 +143,7 @@
 
             <img
               class="thumb-img"
-              :src="video.video_img"
+              :src="'images/movies/' + video.video_img"
               alt="video.video_title"
             />
             <!-- </a> -->
