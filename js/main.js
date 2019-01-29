@@ -1,4 +1,6 @@
 (() => {
+
+  //---------- HEADER COMPONENT ----------//
   const mainheader = {
     template: "#appheader",
     //name: 'tempheader',
@@ -7,18 +9,35 @@
     }
   };
 
+
+
+
+
+
+
+
+
+
+//---------- FOOTER/NAVIGATION COMPONENT----------//
   const navigation = {
+    props: ['navdisplay'],
     data() {
       return {
         showMenu: false,
-        showSettings: false
+        showSettings: false,
+        //navdisplay: "none",
+
       };
     },
     template: "#appfooter",
     created: function() {
       console.log("footer nav");
     },
+    // mounted(){
+    //   this.checkpage();
+    // },
     methods: {
+
       openSettings(e) {
         console.log("clicked");
         const settings = document.querySelector(".settings-nav");
@@ -44,11 +63,21 @@
       }
     }
   };
+
+
+
+
+
+
+
+
+
+  //----------HOME PAGE COMPONENT----------//
   const homepage = {
     template: "#homepage",
     data: function() {
       return {
-        hideBar: false
+        //hideBar: false
       };
     },
     created: function() {
@@ -69,6 +98,16 @@
   const login = {
     template: "#login"
   };
+
+
+
+
+
+
+
+
+
+  //----------MOVIES COMPONENT----------//
   const moviespage = {
     template: "#moviespage",
     data: function() {
@@ -76,7 +115,7 @@
         vidinfo: [],
 
         singleVidInfo: [],
-        hideBar: true
+        //hideBar: true
         singleVidInfo: []
         //singleVidInfo: {video_title:'test', video_img:'test', video_cast:'test', video_director:'test', video_desc:'', video_year:'', video_category:'', video_rating:''},
       }
@@ -99,14 +138,6 @@
             if (movie) {
               console.log(data);
               this.singleVidInfo = data[0];
-              // this.singleVidInfo.video_title = data[0].video_title;
-              // this.singleVidInfo.video_img = data[0].video_img;
-              // this.singleVidInfo.video_cast = data.video_cast;
-              // this.singleVidInfo.video_director = data.video_director;
-              // this.singleVidInfo.video_desc = data.video_desc;
-              // this.singleVidInfo.video_year = data.video_year;
-              // this.singleVidInfo.video_category = data.video_category;
-              // this.singleVidInfo.video_rating = data.video_rating;
 
             } else {
               console.log(data);
@@ -128,8 +159,20 @@
       closebox(){
         this.$refs.vidbox.style.display="none";
       }
+    },
+    components: {
+      footernav: navigation
     }
   };
+
+
+
+
+
+
+
+
+  //----------ROUTES----------//
   const routes = [
     { path: "/", name: "home", component: homepage },
     { path: "/movies", name: "movies", component: moviespage },
@@ -138,15 +181,38 @@
   const router = new VueRouter({
     routes
   });
+
+
+
+
+
+
+
+
+
+  //----------MAIN VUE INSTANCE----------//
   const vm = new Vue({
     el: "#app",
     data: {
       vidinfo: [],
       singleVidInfo: [],
-      hideBar: ""
+      navdisplay: true,
+      //hideBar: false
+      homeurl: "http://localhost:8888/alderson_mariah_dantas_daniella_AV_app/#/"
     },
     created() {},
-    methods: {},
+    beforeUpdate(){
+      this.checkpage();
+    },
+    methods: {
+      checkpage(){
+        if(this.homeurl != window.location.href){
+          this.navdisplay = "none";
+        }else{
+          this.navdisplay="block";
+        }
+      }
+    },
     components: {
       temp: mainheader,
       footernav: navigation,
@@ -155,4 +221,6 @@
     },
     router: router
   });
+
+
 })();
