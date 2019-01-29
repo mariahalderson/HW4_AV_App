@@ -63,9 +63,19 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  position: relative;
+  z-index: 99;
 }
-.logo-header img {
+.logo-header .image-container {
   height: 40px;
+  display: flex;
+  align-items: center;
+}
+.logo-header .image-container img {
+  max-height: 100%;
+}
+.logo-header .image-container img:nth-child(2) {
+  height: 80%;
 }
 .logo-header .login-btn {
   text-decoration: none;
@@ -94,9 +104,29 @@
   box-shadow: 0px 1px 24px -5px rgba(0, 0, 0, 0.72);
   z-index: 2;
 }
+@media screen and (min-width: 900px) {
+  #bottomNav #main-nav {
+    top: 0px;
+    left: 0px;
+    width: 100px;
+    height: 100vh;
+    z-index: 98;
+  }
+}
 #bottomNav #main-nav ul {
   display: flex;
   justify-content: space-around;
+}
+@media screen and (min-width: 900px) {
+  #bottomNav #main-nav ul {
+    flex-direction: column;
+    height: 100%;
+  }
+}
+@media screen and (min-width: 900px) {
+  #bottomNav #main-nav ul #hamburger {
+    display: none;
+  }
 }
 #bottomNav #main-nav ul li {
   list-style: none;
@@ -106,12 +136,27 @@
   text-align: center;
   transition: all 0.3s ease-in-out;
 }
+@media screen and (min-width: 900px) {
+  #bottomNav #main-nav ul li {
+    height: 30%;
+    display: flex;
+    align-items: center;
+  }
+  #bottomNav #main-nav ul li:first-child {
+    margin-top: 70px;
+  }
+}
 #bottomNav #main-nav ul li img {
   width: 30px;
 }
 @media screen and (min-width: 700px) {
   #bottomNav #main-nav ul li img {
     width: 20%;
+  }
+}
+@media screen and (min-width: 900px) {
+  #bottomNav #main-nav ul li img {
+    width: 90%;
   }
 }
 #bottomNav #main-nav ul li span {
@@ -133,9 +178,23 @@
   background-color: #f2f2f3;
   transition: 0.3s ease-in-out;
 }
+@media screen and (min-width: 900px) {
+  #bottomNav .menu {
+    top: 0px;
+    left: 100px;
+    height: 100vh;
+    width: 50px;
+    visibility: visible;
+  }
+}
 #bottomNav .menu.show {
   visibility: visible;
   height: 150px;
+}
+@media screen and (min-width: 900px) {
+  #bottomNav .menu .search-box {
+    display: none;
+  }
 }
 #bottomNav .menu .menu-nav {
   border-top: 1px solid #4d2e7e;
@@ -143,6 +202,15 @@
   padding: 15px;
   display: flex;
   justify-content: space-evenly;
+}
+@media screen and (min-width: 900px) {
+  #bottomNav .menu .menu-nav {
+    flex-direction: column;
+    height: 80%;
+    border: none;
+    justify-content: space-between;
+    padding: 7px;
+  }
 }
 #bottomNav .menu .menu-nav .nav-item {
   list-style: none;
@@ -152,6 +220,11 @@
   cursor: pointer;
   color: #4d2e7e;
   font-size: 24px;
+}
+@media screen and (min-width: 900px) {
+  #bottomNav .menu .menu-nav .nav-item .nav-link {
+    font-size: 18px;
+  }
 }
 
 .settings {
@@ -388,10 +461,19 @@ h2 {
   display: none;
 }
 
+#movies {
+  background-color: #060010;
+}
+
 #thumbs {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+}
+@media screen and (min-width: 900px) {
+  #thumbs {
+    margin-left: 150px;
+  }
 }
 #thumbs .thumb {
   width: 200px;

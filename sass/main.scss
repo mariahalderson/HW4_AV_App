@@ -41,10 +41,19 @@ h2 {
   display: none;
 }
 
+#movies{
+  background-color: $dark-purple;
+}
+
 #thumbs {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+
+  @media #{$desktop}{
+    margin-left: 150px;
+  }
+
   .thumb {
     width: 200px;
     height: 134px;

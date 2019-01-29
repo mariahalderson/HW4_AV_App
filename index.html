@@ -20,6 +20,12 @@
     <link href="css/main.css" rel="stylesheet" />
     <title>Roku Flashback</title>
   </head>
+
+
+
+
+
+  <!--APP-->
   <body>
     <main id="app">
       <temp></temp>
@@ -32,12 +38,31 @@
       <!-- <footernav :navdisplay="navdisplay"></footernav> -->
     </main>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <!-- templates -->
+
+    <!--HEADER TEMPLATE-->
     <template id="appheader">
       <header class="logo-header">
 
-          <img src="images/flshbcklogo.svg" alt="Roku Logo" />
-          <img src="images/fb_short_logo.svg" alt="Short Flashback Logo" />
+          <div class="image-container">
+            <img src="images/flshbcklogo.svg" alt="Roku Logo" />
+            <img src="images/fb_short_logo.svg" alt="Short Flashback Logo" />
+          </div>
 
         <router-link class="login-btn" :to="{ path: '/login' }" class="link"
           >Login</router-link
@@ -60,7 +85,7 @@
             <li v-on:click="openMenu">
               <img src="images/iconmonstr-television.svg" alt="TV Icon" />
             </li>
-            <li class="settings"><span v-on:click="openSettings">...</span></li>
+            <li class="settings"  id="hamburger"><span v-on:click="openSettings">...</span></li>
           </ul>
         </nav>
         <nav class="menu">

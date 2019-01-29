@@ -5,10 +5,20 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  img {
-    // width: 100%;
+  position: relative;
+  z-index: 99;
+
+  .image-container{
     height: 40px;
-  }
+    display: flex;
+    align-items: center;
+    img {
+      max-height: 100%;
+      &:nth-child(2){
+        height: 80%;
+      }
+    }
+}
   .login-btn {
     text-decoration: none;
     text-transform: uppercase;
