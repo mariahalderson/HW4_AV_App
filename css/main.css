@@ -291,9 +291,22 @@
   font-weight: 100;
 }
 #vidbox .image-container {
+  position: relative;
   max-width: 90%;
   margin: 0 auto;
   overflow: hidden;
+}
+#vidbox .image-container .play-btn {
+  width: 0px;
+  height: 0px;
+  border-left: 20px solid #f2f2f3;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -10px;
+  margin-top: -20px;
 }
 #vidbox .image-container img {
   max-width: 100%;
