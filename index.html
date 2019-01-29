@@ -93,11 +93,42 @@
     </template>
     <template id="moviespage">
       <div id="movies">
+
+        <!--lightbox-->
+        <div id="vidbox" ref="vidbox">
+          <div id="closebox" ref="closebox" v-on:click="closebox">
+            <p>X</p>
+          </div>
+          <h1>{{singleVidInfo.video_title}}</h1>
+          <div class="movie-specs">
+            <p>{{singleVidInfo.video_year}}</p>
+            <p>{{singleVidInfo.video_duration}}</p>
+            <p>{{singleVidInfo.video_rating}}</p>
+            <p>{{singleVidInfo.video_category}}</p>
+          </div>
+          <div class="image-container">
+            <img :src="singleVidInfo.video_img" :alt="singleVidInfo.video_title">
+          </div>
+          <div class="rate-share">
+            <div class="stars">
+            </div>
+
+            <div class="button">
+              <p>SHARE</p>
+            </div>
+          </div>
+
+          <p class="video-desc">{{singleVidInfo.video_desc}}</p>
+
+        </div>
         <!-- <div id="flashback-logo">
           <img src="images/flashback_logo.svg" alt="Roku Flashback Logo" />
         </div> -->
         <section id="thumbs">
-          <div v-for="video in vidinfo" class="thumb">
+          <div v-for="video in vidinfo" class="thumb" :id="video.video_id" v-on:click="showVidInfo">
+
+
+
             <!-- <a
               v-on:click="fetchSingleProject"
               href="#"
@@ -106,7 +137,7 @@
 
             <img
               class="thumb-img"
-              :src="'images/movies/' + video.video_img"
+              :src="video.video_img"
               alt="video.video_title"
             />
             <!-- </a> -->

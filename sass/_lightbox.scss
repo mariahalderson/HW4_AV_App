@@ -1,0 +1,64 @@
+#vidbox{
+  display: none;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 99;
+  box-sizing: border-box;
+  padding: 0px 16px;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.9);
+  overflow-y: scroll;
+
+  #closebox{
+    margin-top: 10px;
+
+    p{
+      color: $off-white
+    }
+  }
+
+  h1{
+    color: #fff;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .movie-specs{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
+
+    p{
+      color: #999;
+      font-size: 12px;
+      font-family: $lato-font;
+      font-weight: 100;
+    }
+  }
+
+  .image-container{
+    max-width: 90%;
+    margin: 0 auto;
+    overflow: hidden;
+
+    img{
+      max-width: 100%;
+    }
+  }
+
+  .rate-share{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+  }
+
+  .video-desc{
+    color: $off-white;
+    text-align: justify;
+    font-weight: 100;
+    line-height: 30px;
+    margin-bottom: 100px;
+  }
+}
