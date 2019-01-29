@@ -7,8 +7,13 @@
   box-sizing: border-box;
   padding: 0px 16px;
   height: 100vh;
+  width: 100vw;
   background-color: rgba(0,0,0,0.9);
   overflow-y: scroll;
+
+  @media #{$desktop}{
+    height: auto;
+  }
 
   #closebox{
     margin-top: 10px;
@@ -17,6 +22,16 @@
       color: $off-white
     }
   }
+
+  #lightbox-container{
+    @media #{$desktop}{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-column-gap: 25px;
+      align-items: center;
+      margin: auto;
+      height: 100%;
+    }
 
   h1{
     color: #fff;
@@ -30,6 +45,10 @@
     width: 90%;
     margin: 0 auto;
 
+    @media #{$tablet}{
+      width: 550px;
+    }
+
     p{
       color: #999;
       font-size: 12px;
@@ -40,9 +59,14 @@
 
   .image-container{
     position: relative;
-    max-width: 90%;
+    width: 90%;
+    max-height: 300px;
     margin: 0 auto;
     overflow: hidden;
+
+    @media #{$tablet}{
+      width: 550px;
+    }
 
     .play-btn{
       width: 0px;
@@ -66,6 +90,15 @@
     display: flex;
     justify-content: space-between;
     margin: 10px 0;
+
+    .image-container{
+      margin: 0;
+    }
+
+    @media #{$tablet}{
+      width: 550px;
+      margin: 10px auto;
+    }
   }
 
   .video-desc{
@@ -74,5 +107,15 @@
     font-weight: 100;
     line-height: 30px;
     margin-bottom: 100px;
+
+    @media #{$tablet}{
+      max-width: 550px;
+      margin: 0 auto 100px auto;
+    }
+
+    @media #{$desktop}{
+      margin: 0;
+    }
   }
+}
 }

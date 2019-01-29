@@ -264,8 +264,14 @@
   box-sizing: border-box;
   padding: 0px 16px;
   height: 100vh;
+  width: 100vw;
   background-color: rgba(0, 0, 0, 0.9);
   overflow-y: scroll;
+}
+@media screen and (min-width: 900px) {
+  #vidbox {
+    height: auto;
+  }
 }
 #vidbox #closebox {
   margin-top: 10px;
@@ -273,30 +279,51 @@
 #vidbox #closebox p {
   color: #f2f2f3;
 }
-#vidbox h1 {
+@media screen and (min-width: 900px) {
+  #vidbox #lightbox-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 25px;
+    align-items: center;
+    margin: auto;
+    height: 100%;
+  }
+}
+#vidbox #lightbox-container h1 {
   color: #fff;
   text-align: center;
   margin-bottom: 10px;
 }
-#vidbox .movie-specs {
+#vidbox #lightbox-container .movie-specs {
   display: flex;
   justify-content: space-between;
   width: 90%;
   margin: 0 auto;
 }
-#vidbox .movie-specs p {
+@media screen and (min-width: 650px) {
+  #vidbox #lightbox-container .movie-specs {
+    width: 550px;
+  }
+}
+#vidbox #lightbox-container .movie-specs p {
   color: #999;
   font-size: 12px;
   font-family: "Lato", sans-serif;
   font-weight: 100;
 }
-#vidbox .image-container {
+#vidbox #lightbox-container .image-container {
   position: relative;
-  max-width: 90%;
+  width: 90%;
+  max-height: 300px;
   margin: 0 auto;
   overflow: hidden;
 }
-#vidbox .image-container .play-btn {
+@media screen and (min-width: 650px) {
+  #vidbox #lightbox-container .image-container {
+    width: 550px;
+  }
+}
+#vidbox #lightbox-container .image-container .play-btn {
   width: 0px;
   height: 0px;
   border-left: 20px solid #f2f2f3;
@@ -308,20 +335,40 @@
   margin-left: -10px;
   margin-top: -20px;
 }
-#vidbox .image-container img {
+#vidbox #lightbox-container .image-container img {
   max-width: 100%;
 }
-#vidbox .rate-share {
+#vidbox #lightbox-container .rate-share {
   display: flex;
   justify-content: space-between;
   margin: 10px 0;
 }
-#vidbox .video-desc {
+#vidbox #lightbox-container .rate-share .image-container {
+  margin: 0;
+}
+@media screen and (min-width: 650px) {
+  #vidbox #lightbox-container .rate-share {
+    width: 550px;
+    margin: 10px auto;
+  }
+}
+#vidbox #lightbox-container .video-desc {
   color: #f2f2f3;
   text-align: justify;
   font-weight: 100;
   line-height: 30px;
   margin-bottom: 100px;
+}
+@media screen and (min-width: 650px) {
+  #vidbox #lightbox-container .video-desc {
+    max-width: 550px;
+    margin: 0 auto 100px auto;
+  }
+}
+@media screen and (min-width: 900px) {
+  #vidbox #lightbox-container .video-desc {
+    margin: 0;
+  }
 }
 
 * {
