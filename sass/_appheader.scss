@@ -8,6 +8,10 @@
   position: relative;
   z-index: 99;
 
+  @media #{$desktop}{
+    position: fixed;
+  }
+
   .image-container{
     height: 40px;
     display: flex;
