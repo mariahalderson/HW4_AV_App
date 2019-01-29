@@ -28,16 +28,16 @@
         <router-view> </router-view>
       </transition>
 
-      <footernav></footernav>
+      <footernav v-if="hideBar"></footernav>
     </main>
 
     <!-- templates -->
     <template id="appheader">
       <header class="logo-header">
-        <div>
+       
           <img src="images/flshbcklogo.svg" alt="Roku Logo" />
-          <img src="images/fb_short_logo.svg" alt="Roku Logo" />
-        </div>
+          <img src="images/fb_short_logo.svg" alt="Short Flashback Logo" />
+        
         <router-link class="login-btn" :to="{ path: '/login' }" class="link"
           >Login</router-link
         >
@@ -152,13 +152,21 @@
       </div>
     </template>
     <template id="homepage">
-      <div>
+      <div id="home">
         <div class="welcome-box">
           <h2>Welcome to Roku</h2>
           <img
             src="images/flashback_logo_yellow.svg"
             alt="Flashback logo yellow"
           />
+          <p>
+            The all new Flashback app from Roku is your complete premium
+            entertainment time-machine. With movies, tv shows, and movies from
+            every decade from 1950-1990 right at your finger tips, you'll never
+            miss the "good 'ol days" again. Your Nostalgia has arrived.
+          </p>
+          <router-link class="btn" :to="{ path: '/register' }" class="link"
+          >Register</router-link
         </div>
       </div>
     </template>

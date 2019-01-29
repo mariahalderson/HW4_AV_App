@@ -1,0 +1,32 @@
+#home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.welcome-box {
+  width: 90%;
+  padding: 20px;
+  text-align: center;
+  background-color: $dark-purple;
+  margin-top: 20px;
+  img {
+    width: 90%;
+    margin-bottom: 20px;
+  }
+  p {
+    color: $off-white;
+    font-weight: $thin-font;
+    margin-bottom: 20px;
+  }
+  .btn {
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 7px 21px;
+    background-color: $blue;
+    border-radius: 10px;
+    transition: 0.3s ease;
+    margin-bottom: 30px;
+  }
+}

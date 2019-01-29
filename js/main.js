@@ -45,7 +45,26 @@
     }
   };
   const homepage = {
-    template: "#homepage"
+    template: "#homepage",
+    data: function() {
+      return {
+        hideBar: false
+      };
+    },
+    created: function() {
+      this.handleStyles();
+    },
+    methods: {
+      handleStyles() {
+        // console.log("Hello");
+        // change style to the body tag for the home page
+        if (this.$route.path === "/") {
+          document.body.style.background = "#f2f2f3";
+          // this.hideBar = false;
+          // document.querySelector(footernav).style.display = "none";
+        }
+      }
+    }
   };
   const login = {
     template: "#login"
@@ -55,9 +74,13 @@
     data: function() {
       return {
         vidinfo: [],
+
+        singleVidInfo: [],
+        hideBar: true
         singleVidInfo: []
         //singleVidInfo: {video_title:'test', video_img:'test', video_cast:'test', video_director:'test', video_desc:'', video_year:'', video_category:'', video_rating:''},
       }
+
     },
     created: function() {
       console.log("moviespage");
@@ -119,7 +142,8 @@
     el: "#app",
     data: {
       vidinfo: [],
-      singleVidInfo: []
+      singleVidInfo: [],
+      hideBar: ""
     },
     created() {},
     methods: {},
