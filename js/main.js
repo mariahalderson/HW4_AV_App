@@ -76,9 +76,17 @@
         vidinfo: [],
 
         singleVidInfo: [],
+<<<<<<< HEAD
         hideBar: true,
         singleVidInfo: []
       };
+=======
+        hideBar: true
+        singleVidInfo: []
+        //singleVidInfo: {video_title:'test', video_img:'test', video_cast:'test', video_director:'test', video_desc:'', video_year:'', video_category:'', video_rating:''},
+      }
+
+>>>>>>> 6c0db482fb454c8eeaca5d46f30d0ff55c968835
     },
     created: function() {
       console.log("moviespage");
