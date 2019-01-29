@@ -21,7 +21,7 @@
     methods: {
       openSettings(e) {
         console.log("clicked");
-         const settings = document.querySelector(".settings-nav");
+        const settings = document.querySelector(".settings-nav");
         if (this.showSettings === false) {
           settings.classList.add("show");
           this.showSettings = true;
@@ -46,6 +46,9 @@
   };
   const homepage = {
     template: "#homepage"
+  };
+  const login = {
+    template: "#login"
   };
   const moviespage = {
     template: "#moviespage",
@@ -83,7 +86,8 @@
   };
   const routes = [
     { path: "/", name: "home", component: homepage },
-    { path: "/movies", name: "movies", component: moviespage }
+    { path: "/movies", name: "movies", component: moviespage },
+    { path: "/login", name: "login", component: login }
   ];
   const router = new VueRouter({
     routes

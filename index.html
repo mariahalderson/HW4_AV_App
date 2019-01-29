@@ -34,7 +34,13 @@
     <!-- templates -->
     <template id="appheader">
       <header class="logo-header">
-        <div><img src="images/flshbcklogo.svg" alt="Roku Logo" /></div>
+        <div>
+          <img src="images/flshbcklogo.svg" alt="Roku Logo" />
+          <img src="images/fb_short_logo.svg" alt="Roku Logo" />
+        </div>
+        <router-link class="login-btn" :to="{ path: '/login' }" class="link"
+          >Login</router-link
+        >
       </header>
     </template>
 
@@ -87,9 +93,9 @@
     </template>
     <template id="moviespage">
       <div id="movies">
-        <div id="flashback-logo">
+        <!-- <div id="flashback-logo">
           <img src="images/flashback_logo.svg" alt="Roku Flashback Logo" />
-        </div>
+        </div> -->
         <section id="thumbs">
           <div v-for="video in vidinfo" class="thumb">
             <!-- <a
@@ -109,7 +115,15 @@
       </div>
     </template>
     <template id="homepage">
-      <div><h2>You are on the Home Page</h2></div>
+      <div>
+        <div class="welcome-box">
+          <h2>Welcome to Roku</h2>
+          <img
+            src="images/flashback_logo_yellow.svg"
+            alt="Flashback logo yellow"
+          />
+        </div>
+      </div>
     </template>
     <script src="js/main.js"></script>
   </body>
