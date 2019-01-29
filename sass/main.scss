@@ -3,6 +3,7 @@
 @import "appheader";
 @import "timemachine";
 @import "menu";
+@import "lightbox";
 * {
   margin: 0;
   padding: 0;
@@ -16,7 +17,8 @@ body {
 }
 
 main {
-  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 h2 {
@@ -67,9 +69,16 @@ h2 {
 }
 
 .button {
-  padding: 30px 25px;
-  border: 2px solid #666;
-  border-radius: 100%;
-  text-align: center;
-  margin: auto;
+  width: 120px;
+  background-color: $off-white;
+  border-radius: 10px;
+
+  p{
+    color: $roku-purple;
+    font-size: 18;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 10px 0;
+    text-align: center;
+  }
 }
