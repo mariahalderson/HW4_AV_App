@@ -74,8 +74,10 @@
     data: function() {
       return {
         vidinfo: [],
+
         singleVidInfo: [],
-        hideBar: true
+        hideBar: true,
+        singleVidInfo: []
       };
     },
     created: function() {
@@ -85,14 +87,16 @@
     methods: {
       getMovieContent(movie) {
         let targetURL = movie
-          ? `./includes/index.php?movie=${movie}`
+          ? //? `./includes/index.php?movie=${movie}`
+            "./includes/index.php?movie=" + movie
           : "./includes/index.php";
+        console.log(targetURL);
         fetch(targetURL)
           .then(res => res.json())
           .then(data => {
             if (movie) {
               console.log(data);
-              this.singleVidInfo = data;
+              this.singleVidInfo = data[0];
             } else {
               console.log(data);
               this.vidinfo = data;
@@ -101,6 +105,16 @@
           .catch(function(error) {
             console.log(error);
           });
+      },
+
+      showVidInfo(e) {
+        //console.log(e.currentTarget.id);
+        this.getMovieContent(e.currentTarget.id);
+        this.$refs.vidbox.style.display = "block";
+      },
+
+      closebox() {
+        this.$refs.vidbox.style.display = "none";
       }
     }
   };

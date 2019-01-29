@@ -17,12 +17,15 @@ function get_all_videos($pdo) {
 
 
 function get_single_video($pdo, $vid) {
-    $query = "SELECT * FROM tbl_video WHERE id = :id";
 
+    $query = "SELECT * FROM tbl_video WHERE video_id = :id";
+    //echo $query;exit;
     $get_video = $pdo->prepare($query);
     $get_video->execute(array(
-      'id'=>$vid
+      ':id'=>$vid
     ));
+    //var_dump($get_video);exit;
+
     $results = array();
 
     while($row = $get_video->fetch(PDO::FETCH_ASSOC)) {
