@@ -115,21 +115,10 @@
         vidinfo: [],
 
         singleVidInfo: [],
-<<<<<<< HEAD
         //hideBar: true
-=======
-<<<<<<< HEAD
-        hideBar: true,
-        singleVidInfo: []
-      };
-=======
-        hideBar: true
->>>>>>> 984c2a8ff5426c462649d5c04e0945b8f8adeebb
-        singleVidInfo: []
         //singleVidInfo: {video_title:'test', video_img:'test', video_cast:'test', video_director:'test', video_desc:'', video_year:'', video_category:'', video_rating:''},
       }
 
->>>>>>> 6c0db482fb454c8eeaca5d46f30d0ff55c968835
     },
     created: function() {
       console.log("moviespage");
@@ -148,10 +137,7 @@
             if (movie) {
               console.log(data);
               this.singleVidInfo = data[0];
-<<<<<<< HEAD
 
-=======
->>>>>>> 984c2a8ff5426c462649d5c04e0945b8f8adeebb
             } else {
               console.log(data);
               this.vidinfo = data;
