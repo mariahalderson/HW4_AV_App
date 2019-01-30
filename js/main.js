@@ -115,11 +115,21 @@
         vidinfo: [],
 
         singleVidInfo: [],
+<<<<<<< HEAD
         //hideBar: true
+=======
+<<<<<<< HEAD
+        hideBar: true,
+        singleVidInfo: []
+      };
+=======
+        hideBar: true
+>>>>>>> 984c2a8ff5426c462649d5c04e0945b8f8adeebb
         singleVidInfo: []
         //singleVidInfo: {video_title:'test', video_img:'test', video_cast:'test', video_director:'test', video_desc:'', video_year:'', video_category:'', video_rating:''},
       }
 
+>>>>>>> 6c0db482fb454c8eeaca5d46f30d0ff55c968835
     },
     created: function() {
       console.log("moviespage");
@@ -128,17 +138,20 @@
     methods: {
       getMovieContent(movie) {
         let targetURL = movie
-          //? `./includes/index.php?movie=${movie}`
-          ? "./includes/index.php?movie=" + movie
+          ? //? `./includes/index.php?movie=${movie}`
+            "./includes/index.php?movie=" + movie
           : "./includes/index.php";
-          console.log(targetURL);
+        console.log(targetURL);
         fetch(targetURL)
           .then(res => res.json())
           .then(data => {
             if (movie) {
               console.log(data);
               this.singleVidInfo = data[0];
+<<<<<<< HEAD
 
+=======
+>>>>>>> 984c2a8ff5426c462649d5c04e0945b8f8adeebb
             } else {
               console.log(data);
               this.vidinfo = data;
@@ -149,15 +162,14 @@
           });
       },
 
-      showVidInfo(e){
+      showVidInfo(e) {
         //console.log(e.currentTarget.id);
         this.getMovieContent(e.currentTarget.id);
-        this.$refs.vidbox.style.display="block";
-
+        this.$refs.vidbox.style.display = "block";
       },
 
-      closebox(){
-        this.$refs.vidbox.style.display="none";
+      closebox() {
+        this.$refs.vidbox.style.display = "none";
       }
     },
     components: {

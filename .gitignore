@@ -3,3 +3,7 @@ node_modules
 .DS_store
 .sass-cache
 css/main.css
+<<<<<<< HEAD
+=======
+css/main.css.map
+>>>>>>> 984c2a8ff5426c462649d5c04e0945b8f8adeebb
