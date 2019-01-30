@@ -20,6 +20,12 @@
     <link href="css/main.css" rel="stylesheet" />
     <title>Roku Flashback</title>
   </head>
+
+
+
+
+
+  <!--APP-->
   <body>
     <main id="app">
       <temp></temp>
@@ -28,16 +34,36 @@
         <router-view> </router-view>
       </transition>
 
-      <footernav v-if="hideBar"></footernav>
+      <!-- <footernav v-if="hideBar"></footernav> -->
+      <!-- <footernav :navdisplay="navdisplay"></footernav> -->
     </main>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <!-- templates -->
+
+    <!--HEADER TEMPLATE-->
     <template id="appheader">
       <header class="logo-header">
-       
-          <img src="images/flshbcklogo.svg" alt="Roku Logo" />
-          <img src="images/fb_short_logo.svg" alt="Short Flashback Logo" />
-        
+
+          <div class="image-container">
+            <img src="images/flshbcklogo.svg" alt="Roku Logo" />
+            <img src="images/fb_short_logo.svg" alt="Short Flashback Logo" />
+          </div>
+
         <router-link class="login-btn" :to="{ path: '/login' }" class="link"
           >Login</router-link
         >
@@ -45,7 +71,7 @@
     </template>
 
     <template id="appfooter">
-      <div id="bottomNav">
+      <div id="bottomNav" ref="bottomNav">
         <nav id="main-nav">
           <ul>
             <li v-on:click="openMenu">
@@ -59,7 +85,7 @@
             <li v-on:click="openMenu">
               <img src="images/iconmonstr-television.svg" alt="TV Icon" />
             </li>
-            <li class="settings"><span v-on:click="openSettings">...</span></li>
+            <li class="settings"  id="hamburger"><span v-on:click="openSettings">...</span></li>
           </ul>
         </nav>
         <nav class="menu">
@@ -149,8 +175,19 @@
             <!-- </a> -->
           </div>
         </section>
+        <footernav></footernav>
       </div>
     </template>
+
+
+
+
+
+
+
+
+
+    <!-- HOME PAGE TEMPLATE-->
     <template id="homepage">
       <div id="home">
         <div class="welcome-box">
@@ -168,6 +205,7 @@
           <router-link class="btn" :to="{ path: '/register' }" class="link"
           >Register</router-link
         </div>
+
       </div>
     </template>
     <script src="js/main.js"></script>

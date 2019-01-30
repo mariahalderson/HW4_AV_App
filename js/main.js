@@ -1,4 +1,6 @@
 (() => {
+
+  //---------- HEADER COMPONENT ----------//
   const mainheader = {
     template: "#appheader",
     //name: 'tempheader',
@@ -7,18 +9,35 @@
     }
   };
 
+
+
+
+
+
+
+
+
+
+//---------- FOOTER/NAVIGATION COMPONENT----------//
   const navigation = {
+    props: ['navdisplay'],
     data() {
       return {
         showMenu: false,
-        showSettings: false
+        showSettings: false,
+        //navdisplay: "none",
+
       };
     },
     template: "#appfooter",
     created: function() {
       console.log("footer nav");
     },
+    // mounted(){
+    //   this.checkpage();
+    // },
     methods: {
+
       openSettings(e) {
         console.log("clicked");
         const settings = document.querySelector(".settings-nav");
@@ -44,11 +63,21 @@
       }
     }
   };
+
+
+
+
+
+
+
+
+
+  //----------HOME PAGE COMPONENT----------//
   const homepage = {
     template: "#homepage",
     data: function() {
       return {
-        hideBar: false
+        //hideBar: false
       };
     },
     created: function() {
@@ -69,6 +98,16 @@
   const login = {
     template: "#login"
   };
+
+
+
+
+
+
+
+
+
+  //----------MOVIES COMPONENT----------//
   const moviespage = {
     template: "#moviespage",
     data: function() {
@@ -77,11 +116,15 @@
 
         singleVidInfo: [],
 <<<<<<< HEAD
+        //hideBar: true
+=======
+<<<<<<< HEAD
         hideBar: true,
         singleVidInfo: []
       };
 =======
         hideBar: true
+>>>>>>> 984c2a8ff5426c462649d5c04e0945b8f8adeebb
         singleVidInfo: []
         //singleVidInfo: {video_title:'test', video_img:'test', video_cast:'test', video_director:'test', video_desc:'', video_year:'', video_category:'', video_rating:''},
       }
@@ -105,6 +148,10 @@
             if (movie) {
               console.log(data);
               this.singleVidInfo = data[0];
+<<<<<<< HEAD
+
+=======
+>>>>>>> 984c2a8ff5426c462649d5c04e0945b8f8adeebb
             } else {
               console.log(data);
               this.vidinfo = data;
@@ -124,8 +171,20 @@
       closebox() {
         this.$refs.vidbox.style.display = "none";
       }
+    },
+    components: {
+      footernav: navigation
     }
   };
+
+
+
+
+
+
+
+
+  //----------ROUTES----------//
   const routes = [
     { path: "/", name: "home", component: homepage },
     { path: "/movies", name: "movies", component: moviespage },
@@ -134,15 +193,38 @@
   const router = new VueRouter({
     routes
   });
+
+
+
+
+
+
+
+
+
+  //----------MAIN VUE INSTANCE----------//
   const vm = new Vue({
     el: "#app",
     data: {
       vidinfo: [],
       singleVidInfo: [],
-      hideBar: ""
+      navdisplay: true,
+      //hideBar: false
+      homeurl: "http://localhost:8888/alderson_mariah_dantas_daniella_AV_app/#/"
     },
     created() {},
-    methods: {},
+    beforeUpdate(){
+      this.checkpage();
+    },
+    methods: {
+      checkpage(){
+        if(this.homeurl != window.location.href){
+          this.navdisplay = "none";
+        }else{
+          this.navdisplay="block";
+        }
+      }
+    },
     components: {
       temp: mainheader,
       footernav: navigation,
@@ -151,4 +233,6 @@
     },
     router: router
   });
+
+
 })();
