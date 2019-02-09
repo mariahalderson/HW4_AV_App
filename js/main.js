@@ -1,146 +1,63 @@
-(() => {
-  const mainheader = {
-    template: "#appheader",
-    //name: 'tempheader',
-    created: function() {
-      console.log("created");
+//IMPORT COMPONENTS
+import LoginComponent from "./components/LoginComponent.js";
+import UsersComponent from "./components/UsersComponent.js";
+
+//----------ROUTES----------//
+const routes = [
+  { path: "/", name: "home", component: LoginComponent },
+  { path: "/users", name: "users", component: UsersComponent }
+
+];
+const router = new VueRouter({
+  routes
+});
+
+//----------MAIN VUE INSTANCE----------//
+const vm = new Vue({
+  data: {
+    vidinfo: [],
+    singleVidInfo: [],
+    navdisplay: true,
+    authenticated: false,
+    administrator: false,
+    user: [],
+    currentUser: [],
+    homeurl: "http://localhost:8888/alderson_mariah_dantas_daniella_AV_app/#/"
+  },
+  created() { },
+  // beforeUpdate() {
+  //   this.checkpage();
+  // },
+  methods: {
+    // checkpage() {
+    //   if (this.homeurl != window.location.href) {
+    //     this.navdisplay = "none";
+    //   } else {
+    //     this.navdisplay = "block";
+    //   }
+    // },
+    setAuthenticated(status) {
+      this.authenticated = status;
+    },
+    logout() {
+      this.$router.push({ path: "/" });
+      this.authenticated = false;
+    },
+
+    setCurrentUser(user) {
+      this.authenticated = false;
     }
-  };
+  },
+  router: router
+}).$mount("#app");
 
-  const navigation = {
-    data() {
-      return {
-        showMenu: false,
-        showSettings: false
-      };
-    },
-    template: "#appfooter",
-    created: function() {
-      console.log("footer nav");
-    },
-    methods: {
-      openSettings(e) {
-        console.log("clicked");
-        const settings = document.querySelector(".settings-nav");
-        if (this.showSettings === false) {
-          settings.classList.add("show");
-          this.showSettings = true;
-        } else {
-          settings.classList.remove("show");
-          this.showSettings = false;
-        }
-      },
-      openMenu(e) {
-        // console.log("clicked");
+// make the router check all of the routes and bounce back if we are not authenticated
+router.beforeEach((to, from, next) => {
+  console.log("router guard working!");
+  if (vm.authenticated === false) {
+    next("/");
+  } else {
+    next();
+  }
+});
 
-        const menu = document.querySelector(".menu");
-        if (this.showMenu === false) {
-          menu.classList.add("show");
-          this.showMenu = true;
-        } else {
-          menu.classList.remove("show");
-          this.showMenu = false;
-        }
-      }
-    }
-  };
-  const homepage = {
-    template: "#homepage",
-    data: function() {
-      return {
-        hideBar: false
-      };
-    },
-    created: function() {
-      this.handleStyles();
-    },
-    methods: {
-      handleStyles() {
-        // console.log("Hello");
-        // change style to the body tag for the home page
-        if (this.$route.path === "/") {
-          document.body.style.background = "#f2f2f3";
-          // this.hideBar = false;
-          // document.querySelector(footernav).style.display = "none";
-        }
-      }
-    }
-  };
-  const login = {
-    template: "#login"
-  };
-  const moviespage = {
-    template: "#moviespage",
-    data: function() {
-      return {
-        vidinfo: [],
-
-        singleVidInfo: [],
-        hideBar: true,
-        singleVidInfo: []
-      };
-    },
-    created: function() {
-      console.log("moviespage");
-      this.getMovieContent(null);
-    },
-    methods: {
-      getMovieContent(movie) {
-        let targetURL = movie
-          ? //? `./includes/index.php?movie=${movie}`
-            "./includes/index.php?movie=" + movie
-          : "./includes/index.php";
-        console.log(targetURL);
-        fetch(targetURL)
-          .then(res => res.json())
-          .then(data => {
-            if (movie) {
-              console.log(data);
-              this.singleVidInfo = data[0];
-            } else {
-              console.log(data);
-              this.vidinfo = data;
-            }
-          })
-          .catch(function(error) {
-            console.log(error);
-          });
-      },
-
-      showVidInfo(e) {
-        //console.log(e.currentTarget.id);
-        this.getMovieContent(e.currentTarget.id);
-        this.$refs.vidbox.style.display = "block";
-      },
-
-      closebox() {
-        this.$refs.vidbox.style.display = "none";
-      }
-    }
-  };
-  const routes = [
-    { path: "/", name: "home", component: homepage },
-    { path: "/movies", name: "movies", component: moviespage },
-    { path: "/login", name: "login", component: login }
-  ];
-  const router = new VueRouter({
-    routes
-  });
-  const vm = new Vue({
-    el: "#app",
-    data: {
-      vidinfo: [],
-      singleVidInfo: [],
-      hideBar: ""
-    },
-    created() {},
-    methods: {},
-    components: {
-      temp: mainheader,
-      footernav: navigation,
-      homepage: homepage,
-      moviespage: moviespage
-    },
-    router: router
-  });
-})();

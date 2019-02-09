@@ -1,5 +1,5 @@
 <?php
-require 'connect.php';
+require_once 'connect.php';
 
 
 function get_all_videos($pdo) {

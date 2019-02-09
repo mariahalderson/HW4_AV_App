@@ -9,9 +9,30 @@
     -moz-box-shadow: 0px 1px 24px -5px rgba(0, 0, 0, 0.72);
     box-shadow: 0px 1px 24px -5px rgba(0, 0, 0, 0.72);
     z-index: 2;
+
+    @media #{$desktop}{
+      top: 0px;
+      left: 0px;
+      width: 100px;
+      height: 100vh;
+      z-index: 98;
+    }
+
     ul {
       display: flex;
       justify-content: space-around; // margin-top: 20px;
+
+      @media #{$desktop}{
+        flex-direction: column;
+        height: 100%;
+      }
+
+      #hamburger{
+        @media #{$desktop}{
+          display: none;
+        }
+      }
+
       li {
         list-style: none;
         padding: 20px;
@@ -19,11 +40,26 @@
         height: 60px;
         text-align: center;
         transition: all 0.3s ease-in-out;
+
+        @media #{$desktop}{
+          height: 30%;
+          display: flex;
+          align-items: center;
+          &:first-child{
+            margin-top: 70px;
+          }
+        }
+
         img {
           width: 30px;
           @media screen and (min-width: 700px) {
             width: 20%;
           }
+
+          @media #{$desktop}{
+            width: 90%;
+          }
+
         }
         span {
           position: absolute;
@@ -38,6 +74,10 @@
       }
     }
   }
+
+
+
+  //----------YEAR MENU----------//
   .menu {
     position: fixed;
     bottom: 60px;
@@ -46,16 +86,42 @@
     visibility: hidden;
     background-color: $off-white;
     transition: 0.3s ease-in-out;
+
+    @media #{$desktop}{
+      top: 0px;
+      left: 100px;
+      height: 100vh;
+      width: 50px;
+      visibility: visible;
+    }
+
     &.show {
       visibility: visible;
       height: 150px;
     }
+
+    .search-box{
+      @media #{$desktop}{
+        display: none;
+      }
+    }
+
     .menu-nav {
       border-top: 1px solid $roku-purple;
       margin-top: 80px;
       padding: 15px;
       display: flex;
       justify-content: space-evenly;
+
+      @media #{$desktop}{
+        flex-direction: column;
+        height: 80%;
+        border: none;
+        justify-content: space-between;
+        padding: 7px;
+        //margin-top:
+      }
+
       .nav-item {
         list-style: none;
         .nav-link {
@@ -63,6 +129,10 @@
           cursor: pointer;
           color: $roku-purple;
           font-size: 24px;
+
+          @media #{$desktop}{
+            font-size: 18px;
+          }
         }
       }
     }
