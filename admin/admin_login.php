@@ -6,8 +6,8 @@
   if(empty($_POST['username']) || empty($_POST['password'])){
     $message = 'Login Failed';
   }else {
-    $username = trim(htmlspecialchars($_POST['username']));
-    $password = trim(htmlspecialchars($_POST['password']));
+    $username = htmlspecialchars($_POST['username']);
+    $password = htmlspecialchars($_POST['password']);
     $message = login($username,$password);
   }
   echo json_encode($message);

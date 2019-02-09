@@ -4,8 +4,8 @@ error_reporting(E_ALL);
 
 function login($username, $password)
 {
-  require_once('./../../includes/connect.php');
-
+  require_once('../includes/connect.php');
+  
    //Check user password
    $check_user_psw = "SELECT user_password FROM tbl_user WHERE user_name = :username";
    $user_psw = $pdo->prepare($check_user_psw);
@@ -15,7 +15,7 @@ function login($username, $password)
      )
    );
    $user_pass = $user_psw->fetchColumn();
-   echo $user_pass;
+   
    if($user_pass === $password) 
    {
      
