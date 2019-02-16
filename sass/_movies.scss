@@ -1,0 +1,47 @@
+#movies {
+  background-color: $dark-purple;
+  background-image: url('../images/bg_dark.png');
+}
+
+#thumbs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  @media #{$desktop} {
+    margin-left: 150px;
+  }
+  .thumb {
+    width: 200px;
+    height: 134px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    border: 1px solid white;
+  }
+  img {
+    //width: 100%;
+    min-height: 100%;
+    max-width: 100%; //margin-bottom: 20px;
+    // border: 1px solid white;
+  }
+}
+
+.title {
+  font-size: 30px;
+  font-weight: $bold-font;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.button {
+  width: 120px;
+  background-color: $off-white;
+  border-radius: 10px;
+  p {
+    color: $roku-purple;
+    font-size: 18;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 10px 0;
+    text-align: center;
+  }
+}

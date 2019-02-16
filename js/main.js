@@ -36,9 +36,11 @@ const vm = new Vue({
     //     this.navdisplay = "block";
     //   }
     // },
-    setAuthenticated(status) {
+    setAuthenticated(status, data) {
       this.authenticated = status;
+      this.user = data;
     },
+
     logout() {
       this.$router.push({ path: "/" });
       this.authenticated = false;
@@ -53,7 +55,8 @@ const vm = new Vue({
 
 // make the router check all of the routes and bounce back if we are not authenticated
 router.beforeEach((to, from, next) => {
-  console.log("router guard working!");
+  console.log("router guard working!", to, from, vm.authenticated);
+
   if (vm.authenticated === false) {
     next("/");
   } else {

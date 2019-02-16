@@ -28,7 +28,7 @@
           class="fas fa-sign-out-alt"></i></router-link>
     </header>
     <!-- the router view element is where the component get rendered when changing the address bar (the route) -->
-    <transition name="fade" mode="out-in">
+    <transition name="slide-fade" mode="out-in">
       <router-view @authenticated="setAuthenticated" @setsubuser="setCurrentUser"> </router-view>
     </transition>
   </main>
