@@ -1,11 +1,12 @@
 //IMPORT COMPONENTS
 import LoginComponent from "./components/LoginComponent.js";
 import UsersComponent from "./components/UsersComponent.js";
-
+import UserHomeComponent from "./components/UserHomeComponent.js";
 //----------ROUTES----------//
 const routes = [
   { path: "/", name: "home", component: LoginComponent },
-  { path: "/users", name: "users", component: UsersComponent }
+  { path: "/users", name: "users", component: UsersComponent },
+  { path: "/userhome", name: "userhome", component: UserHomeComponent },
 
 ];
 const router = new VueRouter({
@@ -24,36 +25,43 @@ const vm = new Vue({
     currentUser: [],
     homeurl: "http://localhost:8888/alderson_mariah_dantas_daniella_AV_app/#/"
   },
-  created() { },
-  // beforeUpdate() {
-  //   this.checkpage();
-  // },
+  created() {
+    if (localStorage.getItem("cachedUser")) {
+      let user = JSON.parse(localStorage.getItem("cachedUser"));
+      this.authenticated = true;
+
+      this.$router.push({ name: "userhome", params: { currentuser: user } });
+    }
+  },
+  beforeUpdate() {
+    this.checkpage();
+  },
   methods: {
-    // checkpage() {
-    //   if (this.homeurl != window.location.href) {
-    //     this.navdisplay = "none";
-    //   } else {
-    //     this.navdisplay = "block";
-    //   }
-    // },
-    setAuthenticated(status) {
-      this.authenticated = status;
+    checkpage() {
+      if (this.homeurl != window.location.href) {
+        this.navdisplay = "none";
+      } else {
+        this.navdisplay = "block";
+      }
     },
+    setAuthenticated(status, data) {
+      this.authenticated = status;
+      this.user = data;
+    },
+
     logout() {
       this.$router.push({ path: "/" });
       this.authenticated = false;
     },
 
-    setCurrentUser(user) {
-      this.authenticated = false;
-    }
   },
   router: router
 }).$mount("#app");
 
 // make the router check all of the routes and bounce back if we are not authenticated
 router.beforeEach((to, from, next) => {
-  console.log("router guard working!");
+  console.log("router guard working!", to, from, vm.authenticated);
+
   if (vm.authenticated === false) {
     next("/");
   } else {

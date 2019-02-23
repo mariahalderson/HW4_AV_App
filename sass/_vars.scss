@@ -5,9 +5,16 @@ $blue: #236aee;
 $off-white: #f2f2f3;
 $yellow: #e9b300;
 // font
-$lato-font: "Lato", sans-serif;
+$lato-font: "Lato",
+sans-serif;
 $bold-font: 400;
 $thin-font: 300;
 //mediaquery
 $tablet: "screen and (min-width: 650px)";
 $desktop: "screen and (min-width: 900px)";
+//mixins
+@mixin boxshadow {
+  -webkit-box-shadow: 1px 6px 117px -20px rgba(0, 0, 0, 0.53);
+  -moz-box-shadow: 1px 6px 117px -20px rgba(0, 0, 0, 0.53);
+  box-shadow: 1px 6px 117px -20px rgba(0, 0, 0, 0.53);
+}

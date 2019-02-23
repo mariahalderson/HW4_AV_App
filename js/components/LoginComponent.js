@@ -1,7 +1,7 @@
 // everything inside of export default will be accecible  to the build, it will be public
 
 export default {
-  template: `
+  template: /*html */`
   <div>
   <div id="home">
   <div class="welcome-box">
@@ -69,16 +69,16 @@ export default {
 
         let url = `./admin/admin_login.php`;
         fetch(url, {
-          method: "POST",
+          method: 'POST',
           body: formData
         })
           .then(res => res.json())
           .then(data => {
-            console.log(data);
-            if (data == "Login Failed") {
-              console.log("Authentication failed, try again");
+            if (typeof data != "object") { // means that we're not getting a user object back
+              console.warn(data);
+              console.error("authentication failed, please try again");
             } else {
-              this.$emit("authenticated", true);
+              this.$emit("authenticated", true, data[0]);
               this.$router.replace({ name: "users" });
             }
           })
@@ -86,8 +86,8 @@ export default {
             console.log(error);
           });
       } else {
-        console.log("Username and password shouldn't be blank");
+        console.log("A username and password must be present");
       }
     }
   }
-};
+}

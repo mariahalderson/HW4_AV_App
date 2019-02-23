@@ -1,6 +1,6 @@
 import NavHeaderComponent from "./layout/NavHeaderComponent.js";
 export default {
-  template: `
+  template: /*html*/ `
   <div id="movies">
   <!--lightbox-->
   <div id="vidbox" ref="vidbox">
@@ -35,9 +35,7 @@ export default {
       <p class="video-desc">{{singleVidInfo.video_desc}}</p>
     </div>
   </div>
-  <!-- <div id="flashback-logo">
-      <img src="images/flashback_logo.svg" alt="Roku Flashback Logo" />
-    </div> -->
+  
   <section id="thumbs">
     <div v-for="video in vidinfo" class="thumb" :id="video.video_id" v-on:click="showVidInfo">
 

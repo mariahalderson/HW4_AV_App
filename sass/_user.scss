@@ -1,0 +1,37 @@
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 2rem;
+  grid-gap: 2rem;
+}
+
+.user-message {
+  margin-bottom: 2rem;
+}
+
+.avatar-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  @include boxshadow;
+  .pic {
+    grid-column: 1;
+    z-index: 1;
+    text-align: center;
+    padding: 1rem;
+    img {
+      width: 80%;
+    }
+  }
+  .user-info {
+    grid-column: 1;
+    z-index: 2;
+    height: 3rem;
+    line-height: 3rem;
+    text-align: center;
+    background-color: $roku-purple;
+    p {
+      text-transform: uppercase;
+      color: $off-white;
+    }
+  }
+}

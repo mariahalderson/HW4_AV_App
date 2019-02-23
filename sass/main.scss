@@ -3,6 +3,8 @@
 @import "appheader";
 @import "menu";
 @import "lightbox";
+@import "movies";
+@import 'user';
 * {
   margin: 0;
   padding: 0;
@@ -24,65 +26,23 @@ h2 {
   color: white;
 }
 
-.fade-enter-active,
-.fade-leave-active {
-  transition-duration: 0.5s;
-  transition-property: opacity;
-  transition-timing-function: ease;
+.slide-fade-enter-active {
+  transition: all .3s ease;
 }
 
-.fade-enter,
-.fade-leave-active {
+.slide-fade-leave-active {
+  transition: all .5s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+
+.slide-fade-enter,
+.slide-fade-leave-active
+/* .slide-fade-leave-active below version 2.1.8 */
+
+  {
+  transform: translateX(100px);
   opacity: 0;
 }
 
 .hide {
   display: none;
-}
-
-#movies {
-  background-color: $dark-purple;
-}
-
-#thumbs {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  @media #{$desktop} {
-    margin-left: 150px;
-  }
-  .thumb {
-    width: 200px;
-    height: 134px;
-    overflow: hidden;
-    margin-bottom: 20px;
-    border: 1px solid white;
-  }
-  img {
-    //width: 100%;
-    min-height: 100%;
-    max-width: 100%; //margin-bottom: 20px;
-    // border: 1px solid white;
-  }
-}
-
-.title {
-  font-size: 30px;
-  font-weight: $bold-font;
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.button {
-  width: 120px;
-  background-color: $off-white;
-  border-radius: 10px;
-  p {
-    color: $roku-purple;
-    font-size: 18;
-    font-weight: 700;
-    text-transform: uppercase;
-    padding: 10px 0;
-    text-align: center;
-  }
 }
