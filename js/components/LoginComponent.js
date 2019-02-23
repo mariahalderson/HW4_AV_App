@@ -1,7 +1,7 @@
 // everything inside of export default will be accecible  to the build, it will be public
 
 export default {
-  template: `
+  template: /*html */`
   <div>
   <div id="home">
   <div class="welcome-box">

@@ -1,12 +1,12 @@
 
 export default {
   props: ["navdisplay"],
-  template: `
+  template: /*html */`
   <div id="bottomNav" ref="bottomNav">
   <nav id="main-nav">
     <ul>
       <li v-on:click="openMenu">
-        <router-link :to="{ path: '/movies' }">
+        <router-link to="{ path: '/movies' }">
           <img src="images/iconmonstr-movies.svg" alt="Movies Icon" />
         </router-link>
       </li>

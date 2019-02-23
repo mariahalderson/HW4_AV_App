@@ -1,6 +1,8 @@
 #movies {
   background-color: $dark-purple;
   background-image: url('../images/bg_dark.png');
+  margin-top: 2rem;
+  margin-bottom: 4rem;
 }
 
 #thumbs {
@@ -18,10 +20,8 @@
     border: 1px solid white;
   }
   img {
-    //width: 100%;
     min-height: 100%;
-    max-width: 100%; //margin-bottom: 20px;
-    // border: 1px solid white;
+    max-width: 100%;
   }
 }
 
