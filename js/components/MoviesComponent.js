@@ -12,7 +12,7 @@ export default {
         <h1>{{singleVidInfo.video_title}}</h1>
 
         <div class="image-container">
-          <img :src="'images/movies/' + singleVidInfo.video_img" :alt="singleVidInfo.video_title">
+          <img :src="singleVidInfo.video_img" :alt="singleVidInfo.video_title">
           <div class="play-btn"></div>
         </div>
         <div class="movie-specs">
@@ -35,12 +35,12 @@ export default {
       <p class="video-desc">{{singleVidInfo.video_desc}}</p>
     </div>
   </div>
-  
+
   <section id="thumbs">
     <div v-for="video in vidinfo" class="thumb" :id="video.video_id" v-on:click="showVidInfo">
 
       <img class="thumb-img" :src="'images/movies/' + video.video_img" alt="video.video_title" />
-      
+
     </div>
   </section>
   <NavHeaderComponent/>
