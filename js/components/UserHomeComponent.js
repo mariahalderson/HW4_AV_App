@@ -1,9 +1,9 @@
 import MoviesComponent from "./MoviesComponent.js"
 export default {
-  props: ['currentuser'],
-  template: `
+  props: ['currentUser'],
+  template: /*html */`
   <div>
- <MoviesComponent></MoviesComponent>
+  <MoviesComponent></MoviesComponent>
  </div>
  `,
   data() {

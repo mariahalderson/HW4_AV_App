@@ -1,13 +1,14 @@
 import UserComponent from './UserComponent.js';
 
 export default {
+  // prop: [],
   template: /*html */`
+  <div>
+  <h1 class="user-message">{{ message }}</h1>
 	<div class="container">
-		
-				<h1 class="user-message">{{ message }}</h1>
-			
 			<user v-for="(user, index) in userList" :liveuser="user" :key="index"></user>     
-	</div>
+  </div>
+  </div>
 	`,
 
   created: function () {
@@ -17,7 +18,7 @@ export default {
 
   data() {
     return {
-      message: `Who's Using Roku Flashback Today?`,
+      message: "Who's Using Roku Flashback Today?",
 
       userList: []
     }
@@ -29,7 +30,10 @@ export default {
 
       fetch(url)
         .then(res => res.json())
-        .then(data => { this.userList = data })
+        .then(data => {
+          this.userList = data
+          // console.log(userList);
+        })
         // .then(res => res.text())
         // .then(text => console.log(text))
         .catch(function (error) {
