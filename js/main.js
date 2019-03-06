@@ -6,7 +6,8 @@ import UserHomeComponent from "./components/UserHomeComponent.js";
 const routes = [
   { path: "/", name: "home", component: LoginComponent },
   { path: "/users", name: "users", component: UsersComponent },
-  { path: "/userhome", name: "userhome", component: UserHomeComponent },
+  { path: "/userhome", name: "userhome", component: UserHomeComponent, props: true },
+  // { path: "/movies", name: "movies", component: UserHomeComponent },
 
 ];
 const router = new VueRouter({
@@ -30,7 +31,7 @@ const vm = new Vue({
       let user = JSON.parse(localStorage.getItem("cachedUser"));
       this.authenticated = true;
 
-      this.$router.push({ name: "userhome", params: { currentuser: user } });
+      this.$router.push({ name: "userhome", params: { currentUser: user } });
     }
   },
   beforeUpdate() {
@@ -52,6 +53,7 @@ const vm = new Vue({
     logout() {
       this.$router.push({ path: "/" });
       this.authenticated = false;
+      localStorage.clear("cachedUser");
     },
 
   },

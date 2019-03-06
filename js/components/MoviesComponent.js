@@ -72,10 +72,10 @@ export default {
         .then(res => res.json())
         .then(data => {
           if (movie) {
-            console.log(data);
+            // console.log(data);
             this.singleVidInfo = data[0];
           } else {
-            console.log(data);
+            // console.log(data);
             this.vidinfo = data;
           }
         })
