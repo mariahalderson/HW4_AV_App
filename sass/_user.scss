@@ -3,6 +3,12 @@
   grid-template-columns: 1fr;
   padding: 2rem;
   grid-gap: 2rem;
+  @media screen and (min-width: 760px) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media screen and (min-width: 1200px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
 
 .user-message {
@@ -12,6 +18,9 @@
 .avatar-card {
   display: grid;
   grid-template-columns: 1fr;
+  max-width: 300px;
+  justify-self: center;
+  cursor: pointer;
   @include boxshadow;
   .pic {
     grid-column: 1;
