@@ -6,9 +6,7 @@ export default {
   <nav id="main-nav">
     <ul>
       <li v-on:click="openMenu">
-        <router-link to="{ path: '/movies' }">
           <img src="images/iconmonstr-movies.svg" alt="Movies Icon" id="movie" />
-        </router-link>
       </li>
       <li v-on:click="openMenu">
         <img src="images/iconmonstr-music.svg" alt="Music Icon" id="music"/>
@@ -94,6 +92,7 @@ export default {
       var media = e.currentTarget.querySelector("img").id;
       this.media = media;
       console.log(this.media);
+      this.$emit('updateMedia', this.media);
     }
   }
 }
