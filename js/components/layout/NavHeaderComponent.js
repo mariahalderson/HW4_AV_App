@@ -6,15 +6,13 @@ export default {
   <nav id="main-nav">
     <ul>
       <li v-on:click="openMenu">
-        <router-link to="{ path: '/movies' }">
-          <img src="images/iconmonstr-movies.svg" alt="Movies Icon" />
-        </router-link>
+          <img src="images/iconmonstr-movies.svg" alt="Movies Icon" id="movie" />
       </li>
       <li v-on:click="openMenu">
-        <img src="images/iconmonstr-music.svg" alt="Music Icon" />
+        <img src="images/iconmonstr-music.svg" alt="Music Icon" id="music"/>
       </li>
       <li v-on:click="openMenu">
-        <img src="images/iconmonstr-television.svg" alt="TV Icon" />
+        <img src="images/iconmonstr-television.svg" alt="TV Icon" id="tv"/>
       </li>
       <li class="settings" id="hamburger"><span v-on:click="openSettings">...</span></li>
     </ul>
@@ -25,13 +23,13 @@ export default {
       <a class="search-btn" href="#"><i class="fas fa-search"></i></a>
     </div>
     <ul class="menu-nav">
-      <li class="nav-item current">
-        <a href="#" class="nav-link"> 50's </a>
+      <li class="nav-item current" v-on:click="updateDecade">
+        <a href="#" class="nav-link" id="50"> 50's </a>
       </li>
-      <li class="nav-item"><a href="#" class="nav-link"> 60's </a></li>
-      <li class="nav-item"><a href="#" class="nav-link"> 70's </a></li>
-      <li class="nav-item"><a href="#" class="nav-link"> 80's </a></li>
-      <li class="nav-item"><a href="#" class="nav-link"> 90's </a></li>
+      <li class="nav-item" v-on:click="updateDecade"><a href="#" class="nav-link" id="60"> 60's </a></li>
+      <li class="nav-item" v-on:click="updateDecade"><a href="#" class="nav-link" id="70"> 70's </a></li>
+      <li class="nav-item" v-on:click="updateDecade"><a href="#" class="nav-link" id="80"> 80's </a></li>
+      <li class="nav-item" v-on:click="updateDecade"><a href="#" class="nav-link" id="90"> 90's </a></li>
     </ul>
   </nav>
   <nav class="settings-nav">
@@ -47,7 +45,9 @@ export default {
   data() {
     return {
       showMenu: false,
-      showSettings: false
+      showSettings: false,
+      decade: 0,
+      media: 'movies'
       //navdisplay: "none",
     };
   },
@@ -70,8 +70,9 @@ export default {
     },
     openMenu(e) {
       // console.log("clicked");
-
+      this.updateMedia(e);
       const menu = document.querySelector(".menu");
+
       if (this.showMenu === false) {
         menu.classList.add("show");
         this.showMenu = true;
@@ -79,6 +80,19 @@ export default {
         menu.classList.remove("show");
         this.showMenu = false;
       }
+    },
+
+    updateDecade(e){
+      var decade = e.currentTarget.querySelector("a").id;
+      this.decade = decade;
+      console.log(this.decade);
+    },
+
+    updateMedia(e){
+      var media = e.currentTarget.querySelector("img").id;
+      this.media = media;
+      console.log(this.media);
+      this.$emit('updateMedia', this.media);
     }
   }
 }
