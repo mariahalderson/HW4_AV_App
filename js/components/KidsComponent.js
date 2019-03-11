@@ -1,4 +1,5 @@
 export default {
+  props: ['media', 'decade'],
   template: /*html*/ `
   <div id="movies">
   <!--lightbox-->
@@ -36,6 +37,7 @@ export default {
   </div>
 
   <section id="thumbs">
+  <h1 class="pageTitle">A PAGE FOR CHILDREN</h1>
     <div v-for="video in vidinfo" class="thumb" :id="video.video_id" v-on:click="showVidInfo">
 
       <img class="thumb-img" :src="'images/movies/' + video.video_img" alt="video.video_title" />
