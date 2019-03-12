@@ -49,7 +49,7 @@ export default {
       vidinfo: [],
 
       singleVidInfo: [],
-
+      decade: "",
       hideBar: true,
       singleVidInfo: []
     };
