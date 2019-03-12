@@ -5,7 +5,7 @@ export default {
   template: /*html */`
   <div>
   <h1 class="user-message">{{ message }}</h1>
-	<div class="container">
+	<div class="user-container">
 			<user v-for="(user, index) in userList" :liveuser="user" :key="index"></user>     
   </div>
   </div>
@@ -14,6 +14,7 @@ export default {
   created: function () {
     //debugger;
     this.fetchAllUsers();
+    this.handleStyles();
   },
 
   data() {
@@ -25,6 +26,13 @@ export default {
   },
 
   methods: {
+    handleStyles() {
+
+      if (this.$route.path === "/") {
+        document.body.style.background = "#f2f2f3";
+
+      }
+    },
     fetchAllUsers() {
       let url = `./admin/scripts/users.php?allusers=true`;
 

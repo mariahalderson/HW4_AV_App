@@ -1,3 +1,4 @@
+
 export default {
   template: /*html*/ `
   <div id="movies">
@@ -8,17 +9,16 @@ export default {
     </div>
     <div id="lightbox-container">
       <div>
-        <h1>{{singleVidInfo.video_title}}</h1>
+        <h1>{{singleMusicInfo.music_title}}</h1>
 
         <div class="image-container">
-          <img :src="'images/movies/' + singleVidInfo.video_img" :alt="singleVidInfo.video_title">
+          <img :src="'images/music/' + singleMusicInfo.music_img" :alt="singleMusicInfo.music_title">
           <div class="play-btn"></div>
         </div>
         <div class="movie-specs">
-          <p>{{singleVidInfo.video_year}}</p>
-          <p>{{singleVidInfo.video_duration}}</p>
-          <p>{{singleVidInfo.video_rating}}</p>
-          <p>{{singleVidInfo.video_category}}</p>
+          <p>{{singleMusicInfo.music_year}}</p>
+          <p>{{singleMusicInfo.music_artist}}</p>
+          <p>{{singleMusicInfo.music_genre}}</p>
         </div>
         <div class="rate-share">
           <div class="stars image-container">
@@ -31,50 +31,50 @@ export default {
         </div>
       </div>
 
-      <p class="video-desc">{{singleVidInfo.video_desc}}</p>
+      <p class="video-desc">{{singleMusicInfo.music_desc}}</p>
     </div>
   </div>
 
   <section id="thumbs">
-    <div v-for="video in vidinfo" class="thumb" :id="video.video_id" v-on:click="showVidInfo">
+    <div v-for="music in musicInfo" class="thumb" :id="music.music_id" v-on:click="showMusicInfo">
 
-      <img class="thumb-img" :src="'images/movies/' + video.video_img" alt="video.video_title" />
+      <img class="thumb-img" :src="'images/music/' + music.music_img" alt="music.music_title" />
 
     </div>
   </section>
+  
 </div>
  `,
   data: function () {
     return {
-      vidinfo: [],
+      musicInfo: [],
 
-      singleVidInfo: [],
-      decade: "",
+      singleMusicInfo: [],
+
       hideBar: true,
-      singleVidInfo: []
     };
   },
 
   created: function () {
-    // console.log("moviespage");
-    this.getMovieContent(null);
+    console.log("musicpage");
+    this.getMusic(null);
   },
   methods: {
-    getMovieContent(movie) {
-      let targetURL = movie
-        ? //? `./includes/movies.php?movie=${movie}`
-        "./includes/movies.php?movie=" + movie
-        : "./includes/movies.php";
-      // console.log(targetURL);
+    getMusic(music) {
+      let targetURL = music
+        ? //? `./includes/music.php?music=${music}`
+        "./includes/music.php?music=" + music
+        : "./includes/music.php";
+      console.log(targetURL);
       fetch(targetURL)
         .then(res => res.json())
         .then(data => {
-          if (movie) {
+          if (music) {
             // console.log(data);
-            this.singleVidInfo = data[0];
+            this.singleMusicInfo = data[0];
           } else {
             // console.log(data);
-            this.vidinfo = data;
+            this.musicInfo = data;
           }
         })
         .catch(function (error) {
@@ -82,14 +82,15 @@ export default {
         });
     },
 
-    showVidInfo(e) {
+    showMusicInfo(e) {
       //console.log(e.currentTarget.id);
-      this.getMovieContent(e.currentTarget.id);
+      this.getMusic(e.currentTarget.id);
       this.$refs.vidbox.style.display = "block";
     },
 
     closebox() {
       this.$refs.vidbox.style.display = "none";
     }
-  },
+  }
+
 };
