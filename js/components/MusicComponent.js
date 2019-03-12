@@ -1,4 +1,4 @@
-import NavHeaderComponent from "./layout/NavHeaderComponent.js";
+
 export default {
   template: /*html*/ `
   <div id="movies">
@@ -12,7 +12,7 @@ export default {
         <h1>{{singleMusicInfo.music_title}}</h1>
 
         <div class="image-container">
-          <img :src="singleMusicInfo.music_img" :alt="singleMusicInfo.music_title">
+          <img :src="'images/music/' + singleMusicInfo.music_img" :alt="singleMusicInfo.music_title">
           <div class="play-btn"></div>
         </div>
         <div class="movie-specs">
@@ -36,13 +36,13 @@ export default {
   </div>
 
   <section id="thumbs">
-    <div v-for="music in musicInfo" class="thumb" :id="music.music_id" v-on:click="showVidInfo">
+    <div v-for="music in musicInfo" class="thumb" :id="music.music_id" v-on:click="showMusicInfo">
 
       <img class="thumb-img" :src="'images/music/' + music.music_img" alt="music.music_title" />
 
     </div>
   </section>
-  <NavHeaderComponent/>
+  
 </div>
  `,
   data: function () {
@@ -62,14 +62,14 @@ export default {
   methods: {
     getMusic(music) {
       let targetURL = music
-        ? //? `./includes/index.php?music=${music}`
-        "./includes/index.php?music=" + music
-        : "./includes/index.php";
+        ? //? `./includes/music.php?music=${music}`
+        "./includes/music.php?music=" + music
+        : "./includes/music.php";
       console.log(targetURL);
       fetch(targetURL)
         .then(res => res.json())
         .then(data => {
-          if (movie) {
+          if (music) {
             // console.log(data);
             this.singleMusicInfo = data[0];
           } else {
@@ -91,8 +91,6 @@ export default {
     closebox() {
       this.$refs.vidbox.style.display = "none";
     }
-  },
-  components: {
-    NavHeaderComponent: NavHeaderComponent
   }
+
 };
