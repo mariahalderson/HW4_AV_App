@@ -1,5 +1,6 @@
 
 export default {
+  props: ['decade', 'vidinfo'],
   template: /*html*/ `
  <div id="movies">
   <!--lightbox-->
@@ -57,29 +58,30 @@ export default {
 
   created: function () {
 
-    this.getTv(null);
+    this.getTv();
   },
   methods: {
     getTv(tv) {
-      let targetURL = tv
-        ? //? `./includes/tv.php?tv=${tv}`
-        "./includes/tv.php?tv=" + tv
-        : "./includes/tv.php";
-      console.log(targetURL);
-      fetch(targetURL)
-        .then(res => res.json())
-        .then(data => {
-          if (tv) {
-            // console.log(data);
-            this.singleTvInfo = data[0];
-          } else {
-            // console.log(data);
-            this.tvInfo = data;
-          }
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
+      this.tvInfo = this.$props.vidinfo;
+      // let targetURL = tv
+      //   ? //? `./includes/tv.php?tv=${tv}`
+      //   "./includes/tv.php?tv=" + tv
+      //   : "./includes/tv.php";
+      // console.log(targetURL);
+      // fetch(targetURL)
+      //   .then(res => res.json())
+      //   .then(data => {
+      //     if (tv) {
+      //       // console.log(data);
+      //       this.singleTvInfo = data[0];
+      //     } else {
+      //       // console.log(data);
+      //       this.tvInfo = data;
+      //     }
+      //   })
+      //   .catch(function (error) {
+      //     console.log(error);
+      //   });
     },
 
     showTvInfo(e) {

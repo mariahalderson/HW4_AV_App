@@ -1,5 +1,6 @@
 
 export default {
+  props: ['decade', 'vidinfo'],
   template: /*html*/ `
   <div id="movies">
   <!--lightbox-->
@@ -42,7 +43,7 @@ export default {
 
     </div>
   </section>
-  
+
 </div>
  `,
   data: function () {
@@ -56,30 +57,38 @@ export default {
   },
 
   created: function () {
-    console.log("musicpage");
-    this.getMusic(null);
+    //console.log("musicpage");
+    //this.getMusic();
+  },
+  watch: {
+    watchData(){
+      if(this.media == 'music'){
+        this.getMusic();
+      }
+    }
   },
   methods: {
-    getMusic(music) {
-      let targetURL = music
-        ? //? `./includes/music.php?music=${music}`
-        "./includes/music.php?music=" + music
-        : "./includes/music.php";
-      console.log(targetURL);
-      fetch(targetURL)
-        .then(res => res.json())
-        .then(data => {
-          if (music) {
-            // console.log(data);
-            this.singleMusicInfo = data[0];
-          } else {
-            // console.log(data);
-            this.musicInfo = data;
-          }
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
+    getMusic() {
+      this.musicInfo = this.$props.vidinfo;
+      // let targetURL = music
+      //   ? //? `./includes/music.php?music=${music}`
+      //   "./includes/music.php?music=" + music
+      //   : "./includes/music.php";
+      // console.log(targetURL);
+      // fetch(targetURL)
+      //   .then(res => res.json())
+      //   .then(data => {
+      //     if (music) {
+      //       // console.log(data);
+      //       this.singleMusicInfo = data[0];
+      //     } else {
+      //       // console.log(data);
+      //       this.musicInfo = data;
+      //     }
+      //   })
+      //   .catch(function (error) {
+      //     console.log(error);
+      //   });
     },
 
     showMusicInfo(e) {
