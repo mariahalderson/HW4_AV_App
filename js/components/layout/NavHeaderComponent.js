@@ -82,18 +82,19 @@ export default {
       }
     },
 
-    updateDecade(e) {
-      var decade = e.currentTarget.querySelector("a").id;
-      this.decade = decade;
-      console.log(this.decade);
-      this.$emit('updateDecade', this.decade)
-    },
 
-    updateMedia(e) {
+    updateMedia(e){
       var media = e.currentTarget.querySelector("img").id;
       this.media = media;
       // console.log(this.media);
       this.$emit('updateMedia', this.media);
+    },
+
+    updateDecade(e){
+      var decade = e.currentTarget.querySelector("a").id;
+      this.decade = decade;
+      console.log(this.decade);
+      this.$emit('updateDecade', this.decade);
     }
   }
 }

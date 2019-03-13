@@ -6,15 +6,18 @@ export default {
   props: ['currentUser'],
   template: /*html */`
   <div>
-  <MoviesComponent v-if="media == 'movie'"></MoviesComponent>
+  <MoviesComponent :decade="decade" v-if="media == 'movie'"></MoviesComponent>
   <MusicComponent v-if="media == 'music'"></MusicComponent>
-  <TvComponent v-if="media == 'tv'"></TvComponent>
-  <NavHeaderComponent @updateMedia="updateMedia" @updateDecade="updateDecade"></NavHeaderComponent>
+
+  <TVComponent v-if="media == 'tv'"></TVComponent>
+  <NavHeaderComponent @updateDecade="updateDecade" @updateMedia="updateMedia"></NavHeaderComponent>
+
  </div>
  `,
   data() {
     return {
       media: 'movie',
+      decade: '00',
       message: "hello from the Users Page",
       usersList: [],
       decade: ""
@@ -30,7 +33,8 @@ export default {
     updateMedia(media) {
       this.media = media;
     },
-    updateDecade(decade) {
+
+    updateDecade(decade){
       this.decade = decade;
     }
   }

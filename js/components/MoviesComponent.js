@@ -1,4 +1,5 @@
 export default {
+  props: ['decade'],
   template: /*html*/ `
   <div id="movies">
   <!--lightbox-->
