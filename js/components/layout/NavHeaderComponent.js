@@ -73,7 +73,8 @@ export default {
       this.updateMedia(e);
       const menu = document.querySelector(".menu");
 
-      if (this.showMenu === false) {
+      //if (this.showMenu === false) {
+      if(window.innerWidth < 899){
         menu.classList.add("show");
         this.showMenu = true;
       } else {
@@ -95,6 +96,11 @@ export default {
       this.decade = decade;
       console.log(this.decade);
       this.$emit('updateDecade', this.decade);
+
+      if(window.innerWidth < 899){
+        const menu = document.querySelector(".menu");
+        menu.classList.remove("show");
+      }
     }
   }
 }
