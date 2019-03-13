@@ -24,12 +24,12 @@ export default {
     </div>
     <ul class="menu-nav">
       <li class="nav-item current" v-on:click="updateDecade">
-        <a href="#" class="nav-link" id="50"> 50's </a>
+        <a href="#" class="nav-link" id="5"> 50's </a>
       </li>
-      <li class="nav-item" v-on:click="updateDecade"><a href="#" class="nav-link" id="60"> 60's </a></li>
-      <li class="nav-item" v-on:click="updateDecade"><a href="#" class="nav-link" id="70"> 70's </a></li>
-      <li class="nav-item" v-on:click="updateDecade"><a href="#" class="nav-link" id="80"> 80's </a></li>
-      <li class="nav-item" v-on:click="updateDecade"><a href="#" class="nav-link" id="90"> 90's </a></li>
+      <li class="nav-item" v-on:click="updateDecade"><a href="#" class="nav-link" id="6"> 60's </a></li>
+      <li class="nav-item" v-on:click="updateDecade"><a href="#" class="nav-link" id="7"> 70's </a></li>
+      <li class="nav-item" v-on:click="updateDecade"><a href="#" class="nav-link" id="8"> 80's </a></li>
+      <li class="nav-item" v-on:click="updateDecade"><a href="#" class="nav-link" id="9"> 90's </a></li>
     </ul>
   </nav>
   <nav class="settings-nav">

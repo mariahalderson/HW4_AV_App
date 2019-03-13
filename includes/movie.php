@@ -10,7 +10,12 @@ if (isset($_GET['movie'])) {
 
 else {
     // pass the connection and the movie id to a function
-    $data = get_all_videos($pdo);
+    if(isset($_GET['decade'])){
+      $decade = $_GET['decade'];
+    }else{
+      $decade = '0';
+    }
+    $data = get_all_videos($pdo, $decade);
     echo json_encode($data);
 }
 ?>

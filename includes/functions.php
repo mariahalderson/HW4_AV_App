@@ -2,14 +2,17 @@
 require_once 'connect.php';
 
 
-function get_all_videos($pdo)
+function get_all_videos($pdo, $decade)
 {
+  if($decade !== '0'){
+    $query = "SELECT * FROM tbl_video WHERE video_year LIKE '__$decade%'";
+    $get_decade = $pdo->query($query);
+  }else{
     $query = "SELECT * FROM tbl_video";
+    $get_decade = $pdo->query($query);
+  }
 
-    $get_video = $pdo->query($query);
-    $results = array();
-
-    while ($row = $get_video->fetch(PDO::FETCH_ASSOC)) {
+    while ($row = $get_decade->fetch(PDO::FETCH_ASSOC)) {
         $results[] = $row;
     }
 
@@ -37,14 +40,21 @@ function get_single_video($pdo, $vid)
 
     return $results;
 }
-function get_all_music($pdo)
+function get_all_music($pdo, $decade)
 {
-    $query = "SELECT * FROM tbl_music";
+    // $query = "SELECT * FROM tbl_music";
+    //echo $decade;exit();
+    if($decade !== '0'){
+      $query = "SELECT * FROM tbl_music WHERE video_year LIKE '__$decade%'";
+      $get_decade = $pdo->query($query);
+    }else{
+      $query = "SELECT * FROM tbl_music";
+      $get_decade = $pdo->query($query);
+    }
 
-    $get_video = $pdo->query($query);
     $results = array();
 
-    while ($row = $get_video->fetch(PDO::FETCH_ASSOC)) {
+    while ($row = $get_decade->fetch(PDO::FETCH_ASSOC)) {
         $results[] = $row;
     }
 
@@ -73,14 +83,18 @@ function get_single_music($pdo, $music)
     return $results;
 }
 
-function get_all_tv($pdo)
+function get_all_tv($pdo, $decade)
 {
+  if($decade !== '0'){
+    $query = "SELECT * FROM tbl_tv WHERE tv_year LIKE '__$decade%'";
+    $get_decade = $pdo->query($query);
+  }else{
     $query = "SELECT * FROM tbl_tv";
-
-    $get_tv = $pdo->query($query);
+    $get_decade = $pdo->query($query);
+  }
     $results = array();
 
-    while ($row = $get_tv->fetch(PDO::FETCH_ASSOC)) {
+    while ($row = $get_decade->fetch(PDO::FETCH_ASSOC)) {
         $results[] = $row;
     }
 

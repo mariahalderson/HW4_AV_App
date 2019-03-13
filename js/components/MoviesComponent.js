@@ -1,5 +1,5 @@
 export default {
-  props: ['decade'],
+  props: ['decade', 'vidinfo'],
   template: /*html*/ `
   <div id="movies">
   <!--lightbox-->
@@ -50,42 +50,47 @@ export default {
       vidinfo: [],
 
       singleVidInfo: [],
-      decade: "",
+      //decade: "",
       hideBar: true,
-      singleVidInfo: []
+      //singleVidInfo: []
     };
   },
 
   created: function () {
     // console.log("moviespage");
-    this.getMovieContent(null);
+    this.getMovieContent();
   },
   methods: {
-    getMovieContent(movie) {
-      let targetURL = movie
-        ? //? `./includes/movies.php?movie=${movie}`
-        "./includes/movies.php?movie=" + movie
-        : "./includes/movies.php";
-      // console.log(targetURL);
-      fetch(targetURL)
-        .then(res => res.json())
-        .then(data => {
-          if (movie) {
-            // console.log(data);
-            this.singleVidInfo = data[0];
-          } else {
-            // console.log(data);
-            this.vidinfo = data;
-          }
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
+    getMovieContent(){
+      this.vidinfo = this.$props.vidinfo;
     },
+    // getMovieContent(movie) {
+    //   let targetURL = movie
+    //     ? //? `./includes/movies.php?movie=${movie}`
+    //     "./includes/movies.php?movie=" + movie
+    //     : "./includes/movies.php";
+    //   // console.log(targetURL);
+    //   fetch(targetURL)
+    //     .then(res => res.json())
+    //     .then(data => {
+    //       if (movie) {
+    //         // console.log(data);
+    //         this.singleVidInfo = data[0];
+    //       } else {
+    //         // console.log(data);
+    //         this.vidinfo = data;
+    //       }
+    //     })
+    //     .catch(function (error) {
+    //       console.log(error);
+    //     });
+    // },
 
     showVidInfo(e) {
-      //console.log(e.currentTarget.id);
-      this.getMovieContent(e.currentTarget.id);
+      console.log(e.currentTarget.id);
+      //this.getMovieContent(e.currentTarget.id);
+      var index = e.currentTarget.id;
+      this.singleVidInfo = this.vidinfo[index-1];
       this.$refs.vidbox.style.display = "block";
     },
 

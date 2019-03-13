@@ -6,7 +6,7 @@ export default {
   props: ['currentUser'],
   template: /*html */`
   <div>
-  <MoviesComponent :decade="decade" v-if="media == 'movie'"></MoviesComponent>
+  <MoviesComponent :decade="decade" :vidinfo="vidinfo" :singleVidInfo="singleVidInfo" v-if="media == 'movie'"></MoviesComponent>
   <MusicComponent v-if="media == 'music'"></MusicComponent>
   <TvComponent v-if="media == 'tv'"></TvComponent>
   <NavHeaderComponent @updateDecade="updateDecade" @updateMedia="updateMedia"></NavHeaderComponent>
@@ -16,9 +16,11 @@ export default {
   data() {
     return {
       media: 'movie',
-      decade: '00',
+      decade: '0',
       message: "hello from the Users Page",
-      usersList: []
+      usersList: [],
+      vidinfo: [],
+      singleVidInfo: []
     };
   },
   components: {
@@ -27,6 +29,10 @@ export default {
     TvComponent: TvComponent,
     NavHeaderComponent: NavHeaderComponent
   },
+
+  created(){
+    this.getMediaContent(this.media, this.decade);
+  },
   methods: {
     updateMedia(media) {
       this.media = media;
@@ -34,6 +40,36 @@ export default {
 
     updateDecade(decade){
       this.decade = decade;
-    }
+      this.getMediaContent(this.media, this.decade);
+    },
+
+    getMediaContent(media, decade) {
+      // let targetURL = media
+      //   ? //? `./includes/movies.php?movie=${movie}`
+      //   "./includes/movies.php?movie=" + movie
+      //   : "./includes/movies.php";
+      //if(decade == "00"){
+        //let targetURL = "./includes/"+media+".php";
+      // }else{
+         let targetURL = "./includes/"+media+".php?decade="+decade;
+      // }
+      // console.log(targetURL);
+      fetch(targetURL)
+      .then(res => res.json())
+      //.then(res=>res.text())
+      //.then(text=>console.log(text))
+        .then(data => {
+          // if (movie) {
+          //   // console.log(data);
+          //   this.singleVidInfo = data[0];
+          // } else {
+            console.log(data);
+            this.vidinfo = data;
+          //}
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    },
   }
 };
