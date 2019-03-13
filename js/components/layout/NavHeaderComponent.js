@@ -82,10 +82,11 @@ export default {
       }
     },
 
+
     updateMedia(e){
       var media = e.currentTarget.querySelector("img").id;
       this.media = media;
-      console.log(this.media);
+      // console.log(this.media);
       this.$emit('updateMedia', this.media);
     },
 

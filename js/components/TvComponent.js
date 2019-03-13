@@ -1,7 +1,7 @@
+
 export default {
-  props: ['decade'],
   template: /*html*/ `
-  <div id="movies">
+ <div id="movies">
   <!--lightbox-->
   <div id="vidbox" ref="vidbox">
     <div id="closebox" ref="closebox" v-on:click="closebox">
@@ -9,17 +9,17 @@ export default {
     </div>
     <div id="lightbox-container">
       <div>
-        <h1>{{singleVidInfo.video_title}}</h1>
+        <h1>{{singleTvInfo.tv_title}}</h1>
 
         <div class="image-container">
-          <img :src="'images/movies/' + singleVidInfo.video_img" :alt="singleVidInfo.video_title">
+          <img :src="'images/tv/' + singleTvInfo.tv_img" :alt="singleTvInfo.tv_title">
           <div class="play-btn"></div>
         </div>
         <div class="movie-specs">
-          <p>{{singleVidInfo.video_year}}</p>
-          <p>{{singleVidInfo.video_duration}}</p>
-          <p>{{singleVidInfo.video_rating}}</p>
-          <p>{{singleVidInfo.video_category}}</p>
+          <p>{{singleTvInfo.tv_year}}</p>
+          <p>{{singleTvInfo.tv_duration}}</p>
+          <p>{{singleTvInfo.tv_rating}}</p>
+          <p>{{singleTvInfo.tv_category}}</p>
         </div>
         <div class="rate-share">
           <div class="stars image-container">
@@ -32,14 +32,14 @@ export default {
         </div>
       </div>
 
-      <p class="video-desc">{{singleVidInfo.video_desc}}</p>
+      <p class="video-desc">{{singleTvInfo.tv_desc}}</p>
     </div>
   </div>
 
   <section id="thumbs">
-    <div v-for="video in vidinfo" class="thumb" :id="video.video_id" v-on:click="showVidInfo">
+    <div v-for="tv in tvInfo" class="thumb" :id="tv.tv_id" v-on:click="showTvInfo">
 
-      <img class="thumb-img" :src="'images/movies/' + video.video_img" alt="video.video_title" />
+      <img class="thumb-img" :src="'images/tv/' + tv.tv_img" alt="tv.tv_title" />
 
     </div>
   </section>
@@ -47,35 +47,34 @@ export default {
  `,
   data: function () {
     return {
-      vidinfo: [],
+      tvInfo: [],
 
-      singleVidInfo: [],
-      decade: "",
+      singleTvInfo: [],
+
       hideBar: true,
-      singleVidInfo: []
     };
   },
 
   created: function () {
-    // console.log("moviespage");
-    this.getMovieContent(null);
+
+    this.getTv(null);
   },
   methods: {
-    getMovieContent(movie) {
-      let targetURL = movie
-        ? //? `./includes/movies.php?movie=${movie}`
-        "./includes/movies.php?movie=" + movie
-        : "./includes/movies.php";
-      // console.log(targetURL);
+    getTv(tv) {
+      let targetURL = tv
+        ? //? `./includes/tv.php?tv=${tv}`
+        "./includes/tv.php?tv=" + tv
+        : "./includes/tv.php";
+      console.log(targetURL);
       fetch(targetURL)
         .then(res => res.json())
         .then(data => {
-          if (movie) {
+          if (tv) {
             // console.log(data);
-            this.singleVidInfo = data[0];
+            this.singleTvInfo = data[0];
           } else {
             // console.log(data);
-            this.vidinfo = data;
+            this.tvInfo = data;
           }
         })
         .catch(function (error) {
@@ -83,14 +82,15 @@ export default {
         });
     },
 
-    showVidInfo(e) {
+    showTvInfo(e) {
       //console.log(e.currentTarget.id);
-      this.getMovieContent(e.currentTarget.id);
+      this.getTv(e.currentTarget.id);
       this.$refs.vidbox.style.display = "block";
     },
 
     closebox() {
       this.$refs.vidbox.style.display = "none";
     }
-  },
+  }
+
 };

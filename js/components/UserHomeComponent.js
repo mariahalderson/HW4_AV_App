@@ -1,4 +1,6 @@
 import MoviesComponent from "./MoviesComponent.js"
+import MusicComponent from "./MusicComponent.js"
+import TvComponent from "./TvComponent.js"
 import NavHeaderComponent from "./layout/NavHeaderComponent.js"
 export default {
   props: ['currentUser'],
@@ -6,8 +8,10 @@ export default {
   <div>
   <MoviesComponent :decade="decade" v-if="media == 'movie'"></MoviesComponent>
   <MusicComponent v-if="media == 'music'"></MusicComponent>
+
   <TVComponent v-if="media == 'tv'"></TVComponent>
   <NavHeaderComponent @updateDecade="updateDecade" @updateMedia="updateMedia"></NavHeaderComponent>
+
  </div>
  `,
   data() {
@@ -16,16 +20,20 @@ export default {
       decade: '00',
       message: "hello from the Users Page",
       usersList: [],
+      decade: ""
     };
   },
   components: {
     MoviesComponent: MoviesComponent,
+    MusicComponent: MusicComponent,
+    TvComponent: TvComponent,
     NavHeaderComponent: NavHeaderComponent
   },
   methods: {
     updateMedia(media) {
       this.media = media;
     },
+
     updateDecade(decade){
       this.decade = decade;
     }

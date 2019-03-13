@@ -1,8 +1,9 @@
-.container {
+.user-container {
   display: grid;
   grid-template-columns: 1fr;
   padding: 2rem;
   grid-gap: 2rem;
+  padding-bottom: 30rem;
   @media screen and (min-width: 760px) {
     grid-template-columns: 1fr 1fr;
   }
@@ -12,7 +13,8 @@
 }
 
 .user-message {
-  margin-bottom: 2rem;
+  margin: 2rem 0 2rem 0;
+  text-align: center;
 }
 
 .avatar-card {
