@@ -4,15 +4,16 @@ export default {
   props: ['currentUser'],
   template: /*html */`
   <div>
-  <MoviesComponent v-if="media == 'movie'"></MoviesComponent>
+  <MoviesComponent :decade="decade" v-if="media == 'movie'"></MoviesComponent>
   <MusicComponent v-if="media == 'music'"></MusicComponent>
   <TVComponent v-if="media == 'tv'"></TVComponent>
-  <NavHeaderComponent @updateMedia="updateMedia"></NavHeaderComponent>
+  <NavHeaderComponent @updateDecade="updateDecade" @updateMedia="updateMedia"></NavHeaderComponent>
  </div>
  `,
   data() {
     return {
       media: 'movie',
+      decade: '00',
       message: "hello from the Users Page",
       usersList: [],
     };
@@ -24,6 +25,9 @@ export default {
   methods: {
     updateMedia(media) {
       this.media = media;
+    },
+    updateDecade(decade){
+      this.decade = decade;
     }
   }
 };
