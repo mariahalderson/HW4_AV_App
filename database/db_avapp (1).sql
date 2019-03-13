@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Feb 24, 2019 at 12:58 AM
+-- Generation Time: Mar 13, 2019 at 05:02 PM
 -- Server version: 5.7.23
 -- PHP Version: 7.2.10
 
@@ -40,21 +40,21 @@ CREATE TABLE `tbl_comments` (
 --
 
 CREATE TABLE `tbl_music` (
-  `music_id` int(11) NOT NULL,
-  `music_title` varchar(250) NOT NULL,
+  `id` int(11) NOT NULL,
+  `title` varchar(250) NOT NULL,
   `music_artist` varchar(250) NOT NULL,
-  `music_year` int(11) NOT NULL,
-  `music_genre` varchar(250) NOT NULL,
-  `music_img` varchar(500) NOT NULL,
-  `music_stars` int(11) NOT NULL,
-  `music_access` tinyint(4) NOT NULL
+  `year` int(11) NOT NULL,
+  `genre` varchar(250) NOT NULL,
+  `img` varchar(500) NOT NULL,
+  `stars` int(11) NOT NULL,
+  `access` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tbl_music`
 --
 
-INSERT INTO `tbl_music` (`music_id`, `music_title`, `music_artist`, `music_year`, `music_genre`, `music_img`, `music_stars`, `music_access`) VALUES
+INSERT INTO `tbl_music` (`id`, `title`, `music_artist`, `year`, `genre`, `img`, `stars`, `access`) VALUES
 (1, 'Heartbreak Hotel', 'Elvis Presley', 1950, 'Rock', '50-Elvis.jpg', 1, 1),
 (2, 'Someday', 'Ray Charles', 1950, 'Blues', '50-Ray.jpg', 1, 1),
 (3, 'I\'ll Never Get Out Of This World Alive', 'Hank Williams', 1950, 'Country', '50-Hank.jpg', 1, 1);
@@ -66,26 +66,26 @@ INSERT INTO `tbl_music` (`music_id`, `music_title`, `music_artist`, `music_year`
 --
 
 CREATE TABLE `tbl_tv` (
-  `tv_id` int(11) NOT NULL,
-  `tv_title` varchar(250) NOT NULL,
-  `tv_cast` varchar(250) NOT NULL,
-  `tv_director` varchar(150) NOT NULL,
-  `tv_desc` text NOT NULL,
-  `tv_year` smallint(6) NOT NULL,
-  `tv_img` varchar(500) NOT NULL,
-  `tv_thumb` varchar(500) NOT NULL,
-  `tv_stars` int(11) NOT NULL,
-  `tv_access` tinyint(4) NOT NULL,
-  `tv_rating` varchar(15) NOT NULL,
-  `tv_category` varchar(50) NOT NULL,
-  `tv_duration` varchar(10) NOT NULL
+  `id` int(11) NOT NULL,
+  `title` varchar(250) NOT NULL,
+  `cast` varchar(250) NOT NULL,
+  `director` varchar(150) NOT NULL,
+  `desc` text NOT NULL,
+  `year` smallint(6) NOT NULL,
+  `img` varchar(500) NOT NULL,
+  `thumb` varchar(500) NOT NULL,
+  `stars` int(11) NOT NULL,
+  `access` tinyint(4) NOT NULL,
+  `rating` varchar(15) NOT NULL,
+  `category` varchar(50) NOT NULL,
+  `duration` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `tbl_tv`
 --
 
-INSERT INTO `tbl_tv` (`tv_id`, `tv_title`, `tv_cast`, `tv_director`, `tv_desc`, `tv_year`, `tv_img`, `tv_thumb`, `tv_stars`, `tv_access`, `tv_rating`, `tv_category`, `tv_duration`) VALUES
+INSERT INTO `tbl_tv` (`id`, `title`, `cast`, `director`, `desc`, `year`, `img`, `thumb`, `stars`, `access`, `rating`, `category`, `duration`) VALUES
 (1, 'I Love Lucy', 'Lucille Ball, Desi Arnaz, Vivian Vance', 'William Asher', 'A daffy woman constantly strives to become a star along with her bandleader husband and gets herself in the strangest situations.', 1950, '50-ILoveLucy.jpg', '50-ILoveLucy.jpg', 1, 1, '1', 'Comedy', '12'),
 (2, 'Gunsmoke', 'James Arness, Milburn Stone, Amanda Blake', 'Andrew V. McLaglen	', 'Marshal Matt Dillon keeps the peace in rough and tumble Dodge City.', 1950, '50-Gunsmoke.jpg', '50-Gunsmoke.jpg', 1, 1, '1', 'Action', '12');
 
@@ -122,26 +122,26 @@ INSERT INTO `tbl_user` (`user_id`, `user_name`, `user_password`, `user_fname`, `
 --
 
 CREATE TABLE `tbl_video` (
-  `video_id` int(11) NOT NULL,
-  `video_title` varchar(250) NOT NULL,
-  `video_cast` varchar(250) NOT NULL,
-  `video_director` varchar(150) NOT NULL,
-  `video_desc` text NOT NULL,
-  `video_duration` varchar(10) NOT NULL,
-  `video_year` smallint(6) NOT NULL,
-  `video_img` varchar(500) NOT NULL DEFAULT 'images/video_default.jpg',
-  `video-thumb` varchar(30) NOT NULL,
-  `video_stars` int(11) NOT NULL,
-  `video_access` tinyint(1) NOT NULL,
-  `video_rating` varchar(15) NOT NULL,
-  `video_category` varchar(10) NOT NULL
+  `id` int(11) NOT NULL,
+  `title` varchar(250) NOT NULL,
+  `cast` varchar(250) NOT NULL,
+  `director` varchar(150) NOT NULL,
+  `desc` text NOT NULL,
+  `duration` varchar(10) NOT NULL,
+  `year` smallint(6) NOT NULL,
+  `img` varchar(500) NOT NULL DEFAULT 'images/video_default.jpg',
+  `thumb` varchar(30) NOT NULL,
+  `stars` int(11) NOT NULL,
+  `access` tinyint(1) NOT NULL,
+  `rating` varchar(15) NOT NULL,
+  `category` varchar(10) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_video`
 --
 
-INSERT INTO `tbl_video` (`video_id`, `video_title`, `video_cast`, `video_director`, `video_desc`, `video_duration`, `video_year`, `video_img`, `video-thumb`, `video_stars`, `video_access`, `video_rating`, `video_category`) VALUES
+INSERT INTO `tbl_video` (`id`, `title`, `cast`, `director`, `desc`, `duration`, `year`, `img`, `thumb`, `stars`, `access`, `rating`, `category`) VALUES
 (1, 'The Tingler', 'Vincent Price, Judith Evelyn, Darryl Hickman', 'William Castle', 'Dr. Warren Chapin (Vincent Price) has made a surprising discovery -- the spine-chilling sensation that people get when scared is due to a parasite that he dubs the \"tingler.\" Chapin concludes that in extreme circumstances, prolonged fear can cause the creature to damage a person\'s spine and even cause death if the victim can\'t scream, a theory that Oliver Higgins (Philip Coolidge) uses to deadly effect on his wife (Judith Evelyn). Soon the tingler that killed the woman is on the loose.', '82min', 1959, '50-theTingler.jpg', '', 3, 2, 'Rated PG-13', 'Horror'),
 (2, 'Lola Montes', 'Martine Carol, Peter Ustinov, Anton Walbrook', 'Max Ophüls', 'Once, Lola Montes (Martine Carol) was a famous cabaret dancer and the lover of many of 19th-century Europe\'s most prominent men. Now she works in a seedy American circus, where a circus master (Peter Ustinov) tells her life story as the main attraction. After her mother\'s lover (Ivan Desny) marries Lola instead, she is abducted by Russian cossacks. Her many affairs end in marriage to King Ludwig I of Bavaria (Anton Walbrook). She then flees when revolution threatens his kingdom.', '116min', 1955, '50-lolaMontes.jpg', '', 3, 1, 'Rated GP', 'Drama'),
 (3, 'Kanal', ' Teresa Izewska, Tadeusz Janczar, Wienczyslaw Glinski ', 'Andrzej Wajda', 'A symbolic depiction of hell on Earth, set in the last days of the Warsaw uprising in 1944. Lieutenant Zadra is commanding a company of 43 men in a desperate battle amidst the ruins. Facing German offense and cut off from their comrades, Zadra is commanded to retreat his men through the sewer system (\'kanal\'). Zadra and his men are reluctant to do so, as it would indicate that they have lost the battle, but decide to obey the orders. However, as the men (and women) retreat, it becomes clear that their desperate attempt to flee from the hell of battle will result only in more death and suffering…\r\n', '91min', 1957, '50-Kanal.jpg', '', 2, 1, 'Rated: R', 'Drama'),
@@ -208,13 +208,13 @@ ALTER TABLE `tbl_comments`
 -- Indexes for table `tbl_music`
 --
 ALTER TABLE `tbl_music`
-  ADD PRIMARY KEY (`music_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `tbl_tv`
 --
 ALTER TABLE `tbl_tv`
-  ADD PRIMARY KEY (`tv_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `tbl_user`
@@ -226,7 +226,7 @@ ALTER TABLE `tbl_user`
 -- Indexes for table `tbl_video`
 --
 ALTER TABLE `tbl_video`
-  ADD PRIMARY KEY (`video_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `test`
@@ -248,13 +248,13 @@ ALTER TABLE `tbl_comments`
 -- AUTO_INCREMENT for table `tbl_music`
 --
 ALTER TABLE `tbl_music`
-  MODIFY `music_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_tv`
 --
 ALTER TABLE `tbl_tv`
-  MODIFY `tv_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tbl_user`
@@ -266,7 +266,7 @@ ALTER TABLE `tbl_user`
 -- AUTO_INCREMENT for table `tbl_video`
 --
 ALTER TABLE `tbl_video`
-  MODIFY `video_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `test`
