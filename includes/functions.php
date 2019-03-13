@@ -5,7 +5,7 @@ require_once 'connect.php';
 function get_all_videos($pdo, $decade)
 {
   if($decade !== '0'){
-    $query = "SELECT * FROM tbl_video WHERE video_year LIKE '__$decade%'";
+    $query = "SELECT * FROM tbl_video WHERE year LIKE '__$decade%'";
     $get_decade = $pdo->query($query);
   }else{
     $query = "SELECT * FROM tbl_video";
@@ -45,7 +45,7 @@ function get_all_music($pdo, $decade)
     // $query = "SELECT * FROM tbl_music";
     //echo $decade;exit();
     if($decade !== '0'){
-      $query = "SELECT * FROM tbl_music WHERE video_year LIKE '__$decade%'";
+      $query = "SELECT * FROM tbl_music WHERE year LIKE '__$decade%'";
       $get_decade = $pdo->query($query);
     }else{
       $query = "SELECT * FROM tbl_music";
@@ -86,7 +86,7 @@ function get_single_music($pdo, $music)
 function get_all_tv($pdo, $decade)
 {
   if($decade !== '0'){
-    $query = "SELECT * FROM tbl_tv WHERE tv_year LIKE '__$decade%'";
+    $query = "SELECT * FROM tbl_tv WHERE year LIKE '__$decade%'";
     $get_decade = $pdo->query($query);
   }else{
     $query = "SELECT * FROM tbl_tv";

@@ -116,8 +116,8 @@ export default {
       // console.log(targetURL);
       fetch(targetURL)
       .then(res => res.json())
-      //.then(res=>res.text())
-      //.then(text=>console.log(text))
+      // .then(res=>res.text())
+      // .then(text=>console.log(text))
         .then(data => {
           // if (movie) {
           //   // console.log(data);
