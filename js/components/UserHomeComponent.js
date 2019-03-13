@@ -8,8 +8,7 @@ export default {
   <div>
   <MoviesComponent :decade="decade" v-if="media == 'movie'"></MoviesComponent>
   <MusicComponent v-if="media == 'music'"></MusicComponent>
-
-  <TVComponent v-if="media == 'tv'"></TVComponent>
+  <TvComponent v-if="media == 'tv'"></TvComponent>
   <NavHeaderComponent @updateDecade="updateDecade" @updateMedia="updateMedia"></NavHeaderComponent>
 
  </div>
@@ -19,8 +18,7 @@ export default {
       media: 'movie',
       decade: '00',
       message: "hello from the Users Page",
-      usersList: [],
-      decade: ""
+      usersList: []
     };
   },
   components: {
