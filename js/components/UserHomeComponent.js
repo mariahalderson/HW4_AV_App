@@ -6,9 +6,9 @@ export default {
   props: ['currentUser'],
   template: /*html */`
   <div>
-  <MoviesComponent :decade="decade" :vidinfo="vidinfo" :singleVidInfo="singleVidInfo" v-if="media == 'movie'"></MoviesComponent>
-  <MusicComponent v-if="media == 'music'"></MusicComponent>
-  <TvComponent v-if="media == 'tv'"></TvComponent>
+  <MoviesComponent :decade="decade" :vidinfo="vidinfo" v-if="media == 'movie'"></MoviesComponent>
+  <MusicComponent :decade="decade" :vidinfo="vidinfo" v-if="media == 'music'"></MusicComponent>
+  <TvComponent :decade="decade" :vidinfo="vidinfo" v-if="media == 'tv'"></TvComponent>
   <NavHeaderComponent @updateDecade="updateDecade" @updateMedia="updateMedia"></NavHeaderComponent>
 
  </div>
@@ -36,6 +36,7 @@ export default {
   methods: {
     updateMedia(media) {
       this.media = media;
+      this.getMediaContent(this.media, '0');
     },
 
     updateDecade(decade){
