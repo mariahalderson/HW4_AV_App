@@ -24,12 +24,12 @@ export default {
     </div>
     <ul class="menu-nav">
       <li class="nav-item current" v-on:click="updateDecade">
-        <a href="#" class="nav-link" id="50"> 50's </a>
+        <a href="#" class="nav-link" id="5"> 50's </a>
       </li>
-      <li class="nav-item" v-on:click="updateDecade"><a href="#" class="nav-link" id="60"> 60's </a></li>
-      <li class="nav-item" v-on:click="updateDecade"><a href="#" class="nav-link" id="70"> 70's </a></li>
-      <li class="nav-item" v-on:click="updateDecade"><a href="#" class="nav-link" id="80"> 80's </a></li>
-      <li class="nav-item" v-on:click="updateDecade"><a href="#" class="nav-link" id="90"> 90's </a></li>
+      <li class="nav-item" v-on:click="updateDecade"><a href="#" class="nav-link" id="6"> 60's </a></li>
+      <li class="nav-item" v-on:click="updateDecade"><a href="#" class="nav-link" id="7"> 70's </a></li>
+      <li class="nav-item" v-on:click="updateDecade"><a href="#" class="nav-link" id="8"> 80's </a></li>
+      <li class="nav-item" v-on:click="updateDecade"><a href="#" class="nav-link" id="9"> 90's </a></li>
     </ul>
   </nav>
   <nav class="settings-nav">
@@ -73,7 +73,8 @@ export default {
       this.updateMedia(e);
       const menu = document.querySelector(".menu");
 
-      if (this.showMenu === false) {
+      //if (this.showMenu === false) {
+      if(window.innerWidth < 899){
         menu.classList.add("show");
         this.showMenu = true;
       } else {
@@ -95,6 +96,11 @@ export default {
       this.decade = decade;
       console.log(this.decade);
       this.$emit('updateDecade', this.decade);
+
+      if(window.innerWidth < 899){
+        const menu = document.querySelector(".menu");
+        menu.classList.remove("show");
+      }
     }
   }
 }
