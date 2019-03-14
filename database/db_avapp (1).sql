@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Mar 13, 2019 at 05:02 PM
+-- Generation Time: Mar 14, 2019 at 10:54 PM
 -- Server version: 5.7.23
 -- PHP Version: 7.2.10
 
@@ -57,7 +57,11 @@ CREATE TABLE `tbl_music` (
 INSERT INTO `tbl_music` (`id`, `title`, `music_artist`, `year`, `genre`, `img`, `stars`, `access`) VALUES
 (1, 'Heartbreak Hotel', 'Elvis Presley', 1950, 'Rock', '50-Elvis.jpg', 1, 1),
 (2, 'Someday', 'Ray Charles', 1950, 'Blues', '50-Ray.jpg', 1, 1),
-(3, 'I\'ll Never Get Out Of This World Alive', 'Hank Williams', 1950, 'Country', '50-Hank.jpg', 1, 1);
+(3, 'I\'ll Never Get Out Of This World Alive', 'Hank Williams', 1950, 'Country', '50-Hank.jpg', 1, 1),
+(4, 'The Twist', 'Chubby Checker', 1960, 'Music', '60_checker.jpg', 4, 1),
+(5, 'Ain\'t No Mountain High Enough\r\n', 'Diana Ross', 1970, 'Music', '70_mountain.jpg', 5, 1),
+(6, 'Woman in Love\r\n', 'Barbra Streisand', 1980, 'music', '80_barbara.jpg', 2, 1),
+(7, 'Vogue', 'Madonna', 1990, 'Music', '90_madonna.jpg', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -87,7 +91,11 @@ CREATE TABLE `tbl_tv` (
 
 INSERT INTO `tbl_tv` (`id`, `title`, `cast`, `director`, `desc`, `year`, `img`, `thumb`, `stars`, `access`, `rating`, `category`, `duration`) VALUES
 (1, 'I Love Lucy', 'Lucille Ball, Desi Arnaz, Vivian Vance', 'William Asher', 'A daffy woman constantly strives to become a star along with her bandleader husband and gets herself in the strangest situations.', 1950, '50-ILoveLucy.jpg', '50-ILoveLucy.jpg', 1, 1, '1', 'Comedy', '12'),
-(2, 'Gunsmoke', 'James Arness, Milburn Stone, Amanda Blake', 'Andrew V. McLaglen	', 'Marshal Matt Dillon keeps the peace in rough and tumble Dodge City.', 1950, '50-Gunsmoke.jpg', '50-Gunsmoke.jpg', 1, 1, '1', 'Action', '12');
+(2, 'Gunsmoke', 'James Arness, Milburn Stone, Amanda Blake', 'Andrew V. McLaglen	', 'Marshal Matt Dillon keeps the peace in rough and tumble Dodge City.', 1950, '50-Gunsmoke.jpg', '50-Gunsmoke.jpg', 1, 1, '1', 'Action', '12'),
+(3, 'Leave It to Beaver', 'actor, actor, actor', 'director', 'a tv show from the 1960\'s', 1960, '60_beaver.jpeg', '60_beaver.jpeg', 1, 1, '1', 'Comedy', '2'),
+(4, 'The Brady Bunch', 'The kids and the Parents of the Brady Bunch', 'Director', 'The Brady Bunch is an American sitcom created by Sherwood Schwartz', 1970, '70_bunch.jpg', '70_bunch.jpg', 1, 1, '1', 'Comedy', '1'),
+(5, 'Magnum, P.I.', 'Cops', 'Director', 'A show about Magnum PI', 1980, '80_pi.jpg', '80_pi.jpg', 1, 1, '1', '1', '1'),
+(6, 'Twin Peaks', 'Cast members', 'Director', 'Twin Peaks is an American mystery horror drama television series created by Mark Frost and David Lynch', 1990, '90_peaks.jpeg', '90_peaks.jpeg', 1, 1, '1', '1', '1');
 
 -- --------------------------------------------------------
 
@@ -248,13 +256,13 @@ ALTER TABLE `tbl_comments`
 -- AUTO_INCREMENT for table `tbl_music`
 --
 ALTER TABLE `tbl_music`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tbl_tv`
 --
 ALTER TABLE `tbl_tv`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tbl_user`
