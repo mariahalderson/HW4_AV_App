@@ -3,7 +3,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-image: url('../images/home-bg.png');
+  background-image: url('../images/bg_.jpg');
+  background-position: center;
+  background-size: cover;
   padding-bottom: 20rem;
 }
 
@@ -11,10 +13,12 @@
   width: 90%;
   padding: 20px;
   text-align: center;
-  background-color: $dark-purple;
+  background-color: rgba($dark-purple, 0.8);
+  border-radius: 10px;
   margin-top: 20px;
   @media #{$desktop} {
     margin-top: 20vh;
+    width: 60%;
   }
   img {
     width: 90%;

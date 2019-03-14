@@ -13,7 +13,7 @@ export default {
 
   created: function () {
     if (this.liveuser.avatar == null) {
-      this.liveuser.avatar = "temp_avatar.jpg";
+      this.liveuser.avatar = "temp_avatar.png";
     }
   },
 
