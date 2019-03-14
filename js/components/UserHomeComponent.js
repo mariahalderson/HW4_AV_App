@@ -1,12 +1,13 @@
-import MoviesComponent from "./MoviesComponent.js"
-import MusicComponent from "./MusicComponent.js"
-import TvComponent from "./TvComponent.js"
+
 import NavHeaderComponent from "./layout/NavHeaderComponent.js"
 export default {
   props: ['currentUser'],
   template: /*html */`
   <div>
   <div id="movies">
+    <div class="welcome">
+      <h2>Welcome to <span class="purple">Roku </span><span class="yellow">Flashback</span> {{media}} Page</h2>
+    </div>
   <!--lightbox-->
   <div id="vidbox" ref="vidbox">
     <div id="closebox" ref="closebox" v-on:click="closebox">
@@ -36,7 +37,6 @@ export default {
           </div>
         </div>
       </div>
-
       <p class="video-desc">{{singleVidInfo.desc}}</p>
     </div>
   </div>
@@ -53,23 +53,23 @@ export default {
 
  </div>
  `,
-//  computed: {
-//   imageSource() {
-//     var source = 'images/';
-//     if (this.media == "movie") {
-//       source += 'movies/';
-//       source += video.video_img;
-//     }if(this.media == "music"){
-//       source += 'music/';
-//       source += video.music_img;
-//     }if(this.media == "tv"){
-//       source += 'tv/';
-//       source += video.tv_img;
-//     }
-//
-//     return source;
-//   }
-// },
+  //  computed: {
+  //   imageSource() {
+  //     var source = 'images/';
+  //     if (this.media == "movie") {
+  //       source += 'movies/';
+  //       source += video.video_img;
+  //     }if(this.media == "music"){
+  //       source += 'music/';
+  //       source += video.music_img;
+  //     }if(this.media == "tv"){
+  //       source += 'tv/';
+  //       source += video.tv_img;
+  //     }
+  //
+  //     return source;
+  //   }
+  // },
   data() {
     return {
       media: 'movie',
@@ -82,13 +82,11 @@ export default {
     };
   },
   components: {
-    MoviesComponent: MoviesComponent,
-    MusicComponent: MusicComponent,
-    TvComponent: TvComponent,
+
     NavHeaderComponent: NavHeaderComponent
   },
 
-  created(){
+  created() {
     this.getMediaContent(this.media, this.decade);
   },
   methods: {
@@ -97,35 +95,24 @@ export default {
       this.getMediaContent(this.media, '0');
     },
 
-    updateDecade(decade){
+    updateDecade(decade) {
       this.decade = decade;
       this.getMediaContent(this.media, this.decade);
     },
 
     getMediaContent(media, decade) {
       this.getImageSource();
-      // let targetURL = media
-      //   ? //? `./includes/movies.php?movie=${movie}`
-      //   "./includes/movies.php?movie=" + movie
-      //   : "./includes/movies.php";
-      //if(decade == "00"){
-        //let targetURL = "./includes/"+media+".php";
-      // }else{
-         let targetURL = "./includes/"+media+".php?decade="+decade;
-      // }
+
+      let targetURL = "./includes/" + media + ".php?decade=" + decade;
+
       // console.log(targetURL);
       fetch(targetURL)
-      .then(res => res.json())
-      // .then(res=>res.text())
-      // .then(text=>console.log(text))
+        .then(res => res.json())
+        // .then(res=>res.text())
+        // .then(text=>console.log(text))
         .then(data => {
-          // if (movie) {
-          //   // console.log(data);
-          //   this.singleVidInfo = data[0];
-          // } else {
-            console.log(data);
-            this.vidinfo = data;
-          //}
+          console.log(data);
+          this.vidinfo = data;
         })
         .catch(function (error) {
           console.log(error);
@@ -136,19 +123,19 @@ export default {
       console.log(e.currentTarget.id);
       //this.getMovieContent(e.currentTarget.id);
       var index = e.currentTarget.id;
-      this.singleVidInfo = this.vidinfo[index-1];
+      this.singleVidInfo = this.vidinfo[index - 1];
       this.$refs.vidbox.style.display = "block";
     },
 
     closebox() {
       this.$refs.vidbox.style.display = "none";
     },
-    getImageSource(){
-      if(this.media == "movie"){
+    getImageSource() {
+      if (this.media == "movie") {
         this.imageFolder = "movies";
-      }if(this.media == "music"){
+      } if (this.media == "music") {
         this.imageFolder = "music";
-      }if(this.media == "tv"){
+      } if (this.media == "tv") {
         this.imageFolder = "tv";
       }
     }

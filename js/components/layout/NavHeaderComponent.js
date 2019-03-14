@@ -53,7 +53,7 @@ export default {
   },
 
   created: function () {
-    console.log("footer nav");
+    // console.log("footer nav");
   },
 
   methods: {
@@ -74,7 +74,7 @@ export default {
       const menu = document.querySelector(".menu");
 
       //if (this.showMenu === false) {
-      if(window.innerWidth < 899){
+      if (window.innerWidth < 899) {
         menu.classList.add("show");
         this.showMenu = true;
       } else {
@@ -84,20 +84,20 @@ export default {
     },
 
 
-    updateMedia(e){
+    updateMedia(e) {
       var media = e.currentTarget.querySelector("img").id;
       this.media = media;
       // console.log(this.media);
       this.$emit('updateMedia', this.media);
     },
 
-    updateDecade(e){
+    updateDecade(e) {
       var decade = e.currentTarget.querySelector("a").id;
       this.decade = decade;
       console.log(this.decade);
       this.$emit('updateDecade', this.decade);
 
-      if(window.innerWidth < 899){
+      if (window.innerWidth < 899) {
         const menu = document.querySelector(".menu");
         menu.classList.remove("show");
       }

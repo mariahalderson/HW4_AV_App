@@ -15,6 +15,9 @@
 .user-message {
   margin: 2rem 0 2rem 0;
   text-align: center;
+  @media #{$desktop} {
+    margin-top: 20vh;
+  }
 }
 
 .avatar-card {
@@ -44,5 +47,19 @@
       text-transform: uppercase;
       color: $off-white;
     }
+  }
+}
+
+.welcome {
+  text-align: center;
+  padding: 20px;
+  h2 {
+    text-transform: uppercase;
+  }
+  .purple {
+    color: $roku-purple;
+  }
+  .yellow {
+    color: $yellow;
   }
 }
