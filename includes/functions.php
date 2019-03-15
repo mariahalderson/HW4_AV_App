@@ -22,14 +22,11 @@ function get_all_videos($pdo, $decade)
 
 function get_single_video($pdo, $vid)
 {
-    $query = "SELECT * FROM tbl_video WHERE video_id = :id";
-    //echo $query;exit;
+    $query = "SELECT * FROM tbl_video WHERE id = :id";
     $get_video = $pdo->prepare($query);
     $get_video->execute(array(
       ':id'=>$vid
     ));
-    //var_dump($get_video);exit;
-
     $results = array();
 
     while ($row = $get_video->fetch(PDO::FETCH_ASSOC)) {
@@ -42,8 +39,6 @@ function get_single_video($pdo, $vid)
 }
 function get_all_music($pdo, $decade)
 {
-    // $query = "SELECT * FROM tbl_music";
-    //echo $decade;exit();
     if($decade !== '0'){
       $query = "SELECT * FROM tbl_music WHERE year LIKE '__$decade%'";
       $get_decade = $pdo->query($query);
@@ -64,13 +59,11 @@ function get_all_music($pdo, $decade)
 
 function get_single_music($pdo, $music)
 {
-    $query = "SELECT * FROM tbl_music WHERE music_id = :id";
-    //echo $query;exit;
+    $query = "SELECT * FROM tbl_music WHERE id = :id";
     $get_music = $pdo->prepare($query);
     $get_music->execute(array(
       ':id'=>$music
     ));
-    //var_dump($get_video);exit;
 
     $results = array();
 
@@ -104,13 +97,12 @@ function get_all_tv($pdo, $decade)
 
 function get_single_tv($pdo, $tv)
 {
-    $query = "SELECT * FROM tbl_tv WHERE tv_id = :id";
+    $query = "SELECT * FROM tbl_tv WHERE id = :id";
     //echo $query;exit;
     $get_tv = $pdo->prepare($query);
     $get_tv->execute(array(
       ':id'=>$tv
     ));
-    //var_dump($get_video);exit;
 
     $results = array();
 

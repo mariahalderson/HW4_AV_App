@@ -2,9 +2,9 @@
 
 require 'functions.php';
 
-if (isset($_GET['music'])) {
+if (isset($_GET['id'])) {
     // pass the connection and the movie id to a function
-    $data = get_single_music($pdo, $_GET['music']);
+    $data = get_single_music($pdo, $_GET['id']);
     echo json_encode($data);
 } else {
     // pass the connection and the movie id to a function
