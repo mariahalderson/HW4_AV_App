@@ -53,23 +53,7 @@ export default {
 
  </div>
  `,
-  //  computed: {
-  //   imageSource() {
-  //     var source = 'images/';
-  //     if (this.media == "movie") {
-  //       source += 'movies/';
-  //       source += video.video_img;
-  //     }if(this.media == "music"){
-  //       source += 'music/';
-  //       source += video.music_img;
-  //     }if(this.media == "tv"){
-  //       source += 'tv/';
-  //       source += video.tv_img;
-  //     }
-  //
-  //     return source;
-  //   }
-  // },
+
   data() {
     return {
       media: 'movie',
@@ -105,7 +89,6 @@ export default {
 
       let targetURL = "./includes/" + media + ".php?decade=" + decade;
 
-      // console.log(targetURL);
       fetch(targetURL)
         .then(res => res.json())
         // .then(res=>res.text())
@@ -120,11 +103,23 @@ export default {
 
     },
     showVidInfo(e) {
-      console.log(e.currentTarget.id);
-      //this.getMovieContent(e.currentTarget.id);
-      var index = e.currentTarget.id;
-      this.singleVidInfo = this.vidinfo[index - 1];
-      this.$refs.vidbox.style.display = "block";
+      this.getImageSource();
+      var id = e.currentTarget.id;
+
+      let newTarget = "./includes/" + this.media + ".php?id=" + id;
+      console.log(newTarget);
+      fetch(newTarget)
+        .then(res => res.json())
+        // .then(res=>res.text())
+        // .then(text=>console.log(text))
+        .then(data => {
+          console.log(data);
+          this.singleVidInfo = data[0];
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+        this.$refs.vidbox.style.display = "block";
     },
 
     closebox() {

@@ -2,9 +2,9 @@
 
 require 'functions.php';
 
-if (isset($_GET['movie'])) {
+if (isset($_GET['id'])) {
     // pass the connection and the movie id to a function
-    $data = get_single_video($pdo, $_GET['movie']);
+    $data = get_single_video($pdo, $_GET['id']);
     echo json_encode($data);
 }
 
